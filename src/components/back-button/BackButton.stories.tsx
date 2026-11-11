@@ -16,7 +16,7 @@ export const Default: Story = {};
 export const InHeader: Story = {
   parameters: { layout: "padded" },
   render: () => (
-    <header className="flex w-90 items-center gap-3 bg-surface-primary p-4">
+    <header className="flex w-90 items-center gap-3 bg-surface-warm p-4">
       <BackButton label="Back to Resources" />
       <h1 className="text-card-title text-text-primary">Housing support</h1>
     </header>

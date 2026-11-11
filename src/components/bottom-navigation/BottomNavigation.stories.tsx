@@ -8,7 +8,7 @@ const meta = {
   parameters: { layout: "padded", design: { type: "figma", url: "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=94-2406" } },
   args: { active: "home" },
   argTypes: { active: { control: "inline-radio", options: ["home", "my-path", "ask", "resources", "profile"] } },
-  decorators: [(Story) => <div className="w-97.5 bg-surface-warm p-4"><Story /></div>],
+  decorators: [(Story) => <div className="w-97.5 bg-surface-warm p-4 pb-8"><Story /></div>],
 } satisfies Meta<typeof BottomNavigation>;
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -73,33 +73,19 @@
     },
     {
       "name": "Icon",
-      "summary": "Icon — the 12 Startline icons: 24 px outline, 1.8 px stroke at every size (like Figma), coloured by the surrounding text colour (`currentColor`)",
-      "description": "Icon — the 12 Startline icons: 24 px outline, 1.8 px stroke at every size (like Figma), coloured by the surrounding text colour (`currentColor`). Size follows `size-*` classes (default 24 px; Button sets 20 px). Directional icons (chevron-right) mirror automatically in right-to-left layouts. Interactive icons need a 44 px target — put them inside Button or BackButton, never alone. For an icon that is not in this set, use `lucide-react` with `strokeWidth={1.8}`.",
+      "summary": "Icon — the Startline v3.1 icon set (39 icons): 24 px outline, 1.75 px stroke at every size (like Figma), coloured by the surrounding text colour (`currentColor`)",
+      "description": "Icon — the Startline v3.1 icon set (39 icons): 24 px outline, 1.75 px stroke at every size (like Figma), coloured by the surrounding text colour (`currentColor`). Size follows `size-*` classes (default 24 px; Button sets 20 px). Directional icons (chevron-right) mirror automatically in right-to-left layouts. Interactive icons need a 44 px target — put them inside Button or BackButton, never alone. For an icon that is not in this set, use `lucide-react` with `strokeWidth={1.75}`.",
       "import": "import { Icon } from \"@startline/ui\"",
       "source": "src/components/icon/Icon.tsx",
       "figma": {
-        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=93-1995",
-        "nodeId": "93:1995"
+        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=831-3828",
+        "nodeId": "831:3828"
       },
       "props": [
         {
           "name": "name",
-          "type": "\"path\" | \"search\" | \"chevron-right\" | \"check\" | \"close\" | \"home\" | \"resources\" | \"chat\" | \"profile\" | \"bell\" | \"calendar\" | \"map-pin\"",
+          "type": "IconName",
           "required": true,
-          "values": [
-            "path",
-            "search",
-            "chevron-right",
-            "check",
-            "close",
-            "home",
-            "resources",
-            "chat",
-            "profile",
-            "bell",
-            "calendar",
-            "map-pin"
-          ],
           "description": "Which Startline icon (Figma `Name`)."
         },
         {
@@ -340,37 +326,43 @@
     },
     {
       "name": "ChoiceCard",
-      "summary": "Choice card — a large tappable option with label and optional helper, for onboarding and questionnaires",
-      "description": "Choice card — a large tappable option with label and optional helper, for onboarding and questionnaires. `single` behaves as a radio button, `multiple` as a checkbox (native inputs, so keyboard and screen readers work). Wrap a group in `<fieldset>` with a `<legend>` question. Use Switch for instant settings.",
+      "summary": "Choice card — a selectable answer with icon tile, title and optional helper, for onboarding questions",
+      "description": "Choice card — a selectable answer with icon tile, title and optional helper, for onboarding questions. Native radio/checkbox underneath, so keyboard and screen readers work. Wrap a group in `<fieldset>` with the question as `<legend>`. Use Toggle row for settings.",
       "import": "import { ChoiceCard } from \"@startline/ui\"",
       "source": "src/components/choice-card/ChoiceCard.tsx",
       "figma": {
-        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=68-1043",
-        "nodeId": "68:1043"
+        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=592-599",
+        "nodeId": "592:599"
       },
       "props": [
         {
-          "name": "label",
+          "name": "title",
           "type": "string",
           "required": true,
-          "description": "Main text (Figma `Label`)."
+          "description": "Figma `Title` — the answer."
         },
         {
           "name": "helper",
           "type": "string",
           "required": false,
-          "description": "Supporting text under the label (Figma `Helper` + `Show helper`)."
+          "description": "Figma `Helper` (+ `Show helper`) — one line of explanation."
         },
         {
-          "name": "selection",
-          "type": "\"multiple\" | \"single\"",
+          "name": "icon",
+          "type": "IconName",
+          "required": false,
+          "description": "Figma `Icon` — shown in the tile at the start."
+        },
+        {
+          "name": "control",
+          "type": "\"check\" | \"radio\"",
           "required": false,
           "values": [
-            "multiple",
-            "single"
+            "check",
+            "radio"
           ],
-          "default": "single",
-          "description": "Figma `Selection`. `single` = pick one (radio — give all cards in a group the same `name`); `multiple` = pick several (checkbox)."
+          "default": "radio",
+          "description": "Figma `Control`: `radio` = pick one (give every card in the group the same `name`); `check` = pick several."
         },
         {
           "name": "onCheckedChange",
@@ -385,7 +377,7 @@
           "description": ""
         }
       ],
-      "example": "<fieldset><legend>What do you need help with first?</legend>\n  <ChoiceCard name=\"priority\" value=\"housing\" label=\"Housing\" helper=\"Find a place to live\" />\n  <ChoiceCard name=\"priority\" value=\"health\" label=\"Health\" />\n</fieldset>"
+      "example": "<fieldset><legend>What is your situation?</legend>\n  <ChoiceCard name=\"status\" value=\"claimant\" icon=\"shield\" title=\"Refugee claimant\" helper=\"Waiting for a decision\" />\n</fieldset>"
     },
     {
       "name": "Badge",
@@ -400,11 +392,11 @@
       "props": [
         {
           "name": "status",
-          "type": "\"neutral\" | \"info\" | \"success\" | \"warning\" | \"error\"",
+          "type": "\"info\" | \"neutral\" | \"success\" | \"warning\" | \"error\"",
           "required": false,
           "values": [
-            "neutral",
             "info",
+            "neutral",
             "success",
             "warning",
             "error"
@@ -716,11 +708,11 @@
         },
         {
           "name": "tone",
-          "type": "\"neutral\" | \"info\"",
+          "type": "\"info\" | \"neutral\"",
           "required": false,
           "values": [
-            "neutral",
-            "info"
+            "info",
+            "neutral"
           ],
           "default": "neutral",
           "description": "Figma `Tone`: `info` tints helpful tips."
@@ -774,13 +766,13 @@
     },
     {
       "name": "BackButton",
-      "summary": "Back button — 44 px round button that returns to the previous screen",
-      "description": "Back button — 44 px round button that returns to the previous screen. Use top-start on detail screens without bottom navigation. Not a general icon button. Mirrors in right-to-left layouts. Figma `State=Pressed` is the CSS :active state.",
+      "summary": "Back button — Icon button with the back arrow, top-start on detail screens without bottom navigation",
+      "description": "Back button — Icon button with the back arrow, top-start on detail screens without bottom navigation. Mirrors in right-to-left layouts. Same as `<IconButton icon=\"arrow-left\" label=\"Back\" />`.",
       "import": "import { BackButton } from \"@startline/ui\"",
       "source": "src/components/back-button/BackButton.tsx",
       "figma": {
-        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=68-1044",
-        "nodeId": "68:1044"
+        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=592-559",
+        "nodeId": "592:559"
       },
       "props": [
         {
@@ -789,19 +781,36 @@
           "required": false,
           "default": "Back",
           "description": "Accessible name, e.g. \"Back\" or \"Back to Resources\". Translate it."
+        },
+        {
+          "name": "variant",
+          "type": "\"light\" | \"glass\"",
+          "required": false,
+          "values": [
+            "light",
+            "glass"
+          ],
+          "default": "light",
+          "description": "Figma `Variant`: `light` on the warm background; `glass` on photos."
+        },
+        {
+          "name": "dot",
+          "type": "boolean",
+          "required": false,
+          "description": "Small amber dot for unread items (e.g. notifications). Add the count to `label`."
         }
       ],
       "example": "<BackButton onClick={() => router.back()} />"
     },
     {
       "name": "BottomNavigation",
-      "summary": "Bottom navigation — fixed tab bar for the 5 primary destinations (Home, My Path, Ask, Resources, Profile)",
-      "description": "Bottom navigation — fixed tab bar for the 5 primary destinations (Home, My Path, Ask, Resources, Profile). Only on top-level screens; detail screens use Back button. Keep it fixed below the scrolling content. Each item is a 44 px target; the current one is marked `aria-current=\"page\"`.",
+      "summary": "Bottom navigation — floating tab bar for the 5 primary destinations (Home, My Path, Ask, Resources, Profile)",
+      "description": "Bottom navigation — floating tab bar for the 5 primary destinations (Home, My Path, Ask, Resources, Profile). The active tab is a filled pill. Only on top-level screens; detail screens use a back Icon button. Float it 16 px above the bottom edge (`fixed inset-x-4 bottom-4`) over scrolling content. The current item is marked `aria-current=\"page\"`.",
       "import": "import { BottomNavigation } from \"@startline/ui\"",
       "source": "src/components/bottom-navigation/BottomNavigation.tsx",
       "figma": {
-        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=94-2406",
-        "nodeId": "94:2406"
+        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=604-1438",
+        "nodeId": "604:1438"
       },
       "props": [
         {
@@ -945,6 +954,328 @@
           "description": "Called with the chosen question."
         }
       ]
+    },
+    {
+      "name": "PillButton",
+      "summary": "Pill button — the main call to action on a screen (56 px, usually full width at the bottom, or on a photo hero with `variant=\"on-dark\"`)",
+      "description": "Pill button — the main call to action on a screen (56 px, usually full width at the bottom, or on a photo hero with `variant=\"on-dark\"`). One primary pill per screen. For compact actions inside cards and panels use Button.",
+      "import": "import { PillButton } from \"@startline/ui\"",
+      "source": "src/components/pill-button/PillButton.tsx",
+      "figma": {
+        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=592-550",
+        "nodeId": "592:550"
+      },
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"primary\" | \"secondary\" | \"on-dark\" | \"ghost\"",
+          "required": false,
+          "values": [
+            "primary",
+            "secondary",
+            "on-dark",
+            "ghost"
+          ],
+          "default": "primary",
+          "description": "Figma `Variant`: `primary` main action; `secondary` white alternative; `on-dark` white pill on photos and dark cards; `ghost` text only."
+        },
+        {
+          "name": "arrow",
+          "type": "boolean",
+          "required": false,
+          "description": "Figma `Show arrow` — trailing arrow for \"continue\"-style actions. Mirrors in RTL."
+        },
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "description": "Render the child (e.g. a router Link) with pill styles."
+        }
+      ],
+      "example": "<PillButton arrow className=\"w-full\">Continue</PillButton>"
+    },
+    {
+      "name": "IconButton",
+      "summary": "Icon button — round 44 px button with a single icon (back, notifications, search, more)",
+      "description": "Icon button — round 44 px button with a single icon (back, notifications, search, more).",
+      "import": "import { IconButton } from \"@startline/ui\"",
+      "source": "src/components/icon-button/IconButton.tsx",
+      "figma": {
+        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=592-559",
+        "nodeId": "592:559"
+      },
+      "props": [
+        {
+          "name": "icon",
+          "type": "IconName",
+          "required": true,
+          "description": "Figma `Icon` (instance swap) — any Startline icon name."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Accessible name, e.g. \"Back\", \"Notifications\". Required — the button has no visible text."
+        },
+        {
+          "name": "variant",
+          "type": "\"light\" | \"glass\"",
+          "required": false,
+          "values": [
+            "light",
+            "glass"
+          ],
+          "default": "light",
+          "description": "Figma `Variant`: `light` on the warm background; `glass` on photos."
+        },
+        {
+          "name": "dot",
+          "type": "boolean",
+          "required": false,
+          "description": "Small amber dot for unread items (e.g. notifications). Add the count to `label`."
+        }
+      ],
+      "example": "<IconButton icon=\"bell\" label=\"Notifications, 1 unread\" dot />"
+    },
+    {
+      "name": "PlanCard",
+      "summary": "Plan card — a compact step in the user's plan: thumbnail, step tag, topic, title, time and location",
+      "description": "Plan card — a compact step in the user's plan: thumbnail, step tag, topic, title, time and location. The whole card is a link to the step. `state=\"next\"` highlights the step to start now. Use Task card when the step needs a visible action button.",
+      "import": "import { PlanCard } from \"@startline/ui\"",
+      "source": "src/components/plan-card/PlanCard.tsx",
+      "figma": {
+        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=593-619",
+        "nodeId": "593:619"
+      },
+      "props": [
+        {
+          "name": "state",
+          "type": "\"next\" | \"default\"",
+          "required": false,
+          "values": [
+            "next",
+            "default"
+          ],
+          "default": "default",
+          "description": "Figma `State`: `next` outlines the step to start now (show at most one)."
+        },
+        {
+          "name": "step",
+          "type": "string",
+          "required": false,
+          "description": "Figma `Step`, e.g. \"Step 2\". Shown in the tag when not `next`."
+        },
+        {
+          "name": "statusLabel",
+          "type": "string",
+          "required": false,
+          "default": "Start here",
+          "description": "Figma `Status label` — tag text in the `next` state."
+        },
+        {
+          "name": "topic",
+          "type": "string",
+          "required": false,
+          "description": "Figma `Topic`, e.g. \"Housing\"."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "description": "Figma `Title`."
+        },
+        {
+          "name": "time",
+          "type": "string",
+          "required": false,
+          "description": "Figma `Time`, e.g. \"About 20 min\"."
+        },
+        {
+          "name": "location",
+          "type": "string",
+          "required": false,
+          "description": "Figma `Location`, e.g. \"Kitchener\"."
+        },
+        {
+          "name": "image",
+          "type": "string",
+          "required": false,
+          "description": "Thumbnail image URL (84 px square)."
+        },
+        {
+          "name": "imageAlt",
+          "type": "string",
+          "required": false,
+          "default": "",
+          "description": "Thumbnail alt text; leave empty when the image is decorative."
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": true,
+          "description": "Where the card goes — the whole card is one link."
+        }
+      ],
+      "example": "<PlanCard state=\"next\" topic=\"Housing\" title=\"Find a safe place to stay\" time=\"About 20 min\" location=\"Kitchener\" image={img} href=\"/steps/housing\" />"
+    },
+    {
+      "name": "ReviewRow",
+      "summary": "Review row — one answer in a review or summary list: icon tile, label, value and a Change action that returns to the question",
+      "description": "Review row — one answer in a review or summary list: icon tile, label, value and a Change action that returns to the question. Put rows in a `<ul>`. The action is announced as \"Change Situation\".",
+      "import": "import { ReviewRow } from \"@startline/ui\"",
+      "source": "src/components/review-row/ReviewRow.tsx",
+      "figma": {
+        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=593-626",
+        "nodeId": "593:626"
+      },
+      "props": [
+        {
+          "name": "icon",
+          "type": "IconName",
+          "required": true,
+          "description": "Figma `Icon`."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Figma `Label` — the question, e.g. \"Situation\"."
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true,
+          "description": "Figma `Value` — the answer, e.g. \"Refugee claimant\"."
+        },
+        {
+          "name": "actionLabel",
+          "type": "string",
+          "required": false,
+          "default": "Change",
+          "description": "Figma `Action label`. Translate it."
+        },
+        {
+          "name": "onAction",
+          "type": "(() => void)",
+          "required": false,
+          "description": "Called by the Change action (go back to that question)."
+        }
+      ],
+      "example": "<ReviewRow icon=\"file\" label=\"Situation\" value=\"Refugee claimant\" onAction={() => goTo(\"status\")} />"
+    },
+    {
+      "name": "SelectField",
+      "summary": "Select field — a tappable field showing a small label and the chosen value (Figma `Value`); opens the device's native list of options (best on phones and with screen readers)",
+      "description": "Select field — a tappable field showing a small label and the chosen value (Figma `Value`); opens the device's native list of options (best on phones and with screen readers). 64 px tall. Use Text field for typed answers.",
+      "import": "import { SelectField } from \"@startline/ui\"",
+      "source": "src/components/select-field/SelectField.tsx",
+      "figma": {
+        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=593-620",
+        "nodeId": "593:620"
+      },
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Figma `Label` — small text above the value."
+        },
+        {
+          "name": "options",
+          "type": "{ value: string; label: string; }[]",
+          "required": true,
+          "description": "The choices."
+        },
+        {
+          "name": "onValueChange",
+          "type": "((value: string) => void)",
+          "required": false,
+          "description": "Called with the chosen value."
+        },
+        {
+          "name": "onChange",
+          "type": "ChangeEventHandler<HTMLSelectElement, Element>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "description": "Shown when nothing is chosen yet."
+        }
+      ],
+      "example": "<SelectField label=\"Province or territory\" value={p} onValueChange={setP} options={provinces} />"
+    },
+    {
+      "name": "ToggleRow",
+      "summary": "Toggle row — a labelled Switch in a list (reminders, privacy, offline)",
+      "description": "Toggle row — a labelled Switch in a list (reminders, privacy, offline). Changes apply immediately. The label is connected to the switch, so tapping the text toggles it too.",
+      "import": "import { ToggleRow } from \"@startline/ui\"",
+      "source": "src/components/toggle-row/ToggleRow.tsx",
+      "figma": {
+        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=584-455",
+        "nodeId": "584:455"
+      },
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Figma `Label` — names the switch."
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "description": "Optional second line under the label."
+        },
+        {
+          "name": "rowClassName",
+          "type": "string",
+          "required": false,
+          "description": "Classes for the row (the Switch gets `className`)."
+        }
+      ],
+      "example": "<ToggleRow label=\"3 days before\" checked={r3} onCheckedChange={setR3} />"
+    },
+    {
+      "name": "PriorityTile",
+      "summary": "Priority tile — square selectable tile (icon + label) for picking goals or priorities, in a 2-column grid",
+      "description": "Priority tile — square selectable tile (icon + label) for picking goals or priorities, in a 2-column grid. Multiple selection; announce the limit (e.g. \"2 of 3 selected\") near the grid.",
+      "import": "import { PriorityTile } from \"@startline/ui\"",
+      "source": "src/components/priority-tile/PriorityTile.tsx",
+      "figma": {
+        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=593-582",
+        "nodeId": "593:582"
+      },
+      "props": [
+        {
+          "name": "icon",
+          "type": "IconName",
+          "required": true,
+          "description": "Figma `Icon`."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Figma `Label`, e.g. \"Housing\"."
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "required": false,
+          "description": "Figma `State=Selected`. Announced as \"pressed\"."
+        },
+        {
+          "name": "onSelectedChange",
+          "type": "((selected: boolean) => void)",
+          "required": false,
+          "description": "Called with the new selected state."
+        }
+      ],
+      "example": "<PriorityTile icon=\"home\" label=\"Housing\" selected={p.housing} onSelectedChange={(v) => set(\"housing\", v)} />"
     }
   ]
 }

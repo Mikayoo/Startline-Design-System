@@ -26,6 +26,7 @@ Use **semantic colour tokens** (below) in components — never primitives or raw
 | Border/Brand | `*-border-brand` | `--startline-border-brand` | Teal/300 (#8fd8d3) | Adaptive/teal (#83ded2) | Brand outline for selected or emphasised items. |
 | Border/Default | `*-border-default` | `--startline-border-default` | Neutral/300 (#c2d0cd) | Adaptive/line (#718e86) | Default border for fields and outlined controls. |
 | Border/Disabled | `*-border-disabled` | `--startline-border-disabled` | Neutral/100 (#e6eeec) | Adaptive/subtle (#2b4540) | Borders of disabled controls. |
+| Border/Glass | `*-border-glass` | `--startline-border-glass` | Overlay/White 28 (#ffffff47) | Overlay/White 28 (#ffffff47) | Hairline for glass controls on photos. Same in every mode. |
 | Border/Subtle | `*-border-subtle` | `--startline-border-subtle` | Neutral/100 (#e6eeec) | Adaptive/subtle (#2b4540) | Hairline dividers and quiet card outlines. |
 | Elevation/Shadow | `*-elevation-shadow` | `--startline-elevation-shadow` | Shadow/Ink 12 (#1733321f) | Shadow/Black 40 (#00000066) | Shadow colour for raised surfaces (Startline / Elevation / Raised). |
 | Focus/Ring | `*-focus-ring` | `--startline-focus-ring` | Teal/700 (#087f7a) | Adaptive/teal (#83ded2) | Focus outline on any keyboard-focused control. Always 2 px (Border/Focus) with an offset. |
@@ -38,6 +39,7 @@ Use **semantic colour tokens** (below) in components — never primitives or raw
 | Status/Warning Subtle | `*-status-warning-subtle` | `--startline-status-warning-subtle` | Amber/100 (#fbefd5) | Adaptive/raised (#253936) | Background for warning badges and banners. |
 | Surface/Brand | `*-surface-brand` | `--startline-surface-brand` | Teal/700 (#087f7a) | Adaptive/action (#9bebdd) | Brand-filled surfaces such as hero cards. |
 | Surface/Disabled | `*-surface-disabled` | `--startline-surface-disabled` | Neutral/100 (#e6eeec) | Adaptive/raised (#253936) | Surface of disabled containers. |
+| Surface/Glass | `*-surface-glass` | `--startline-surface-glass` | Overlay/White 18 (#ffffff2e) | Overlay/White 18 (#ffffff2e) | Frosted fill for controls placed on photos (Icon button Glass). Same in every mode. |
 | Surface/Primary | `*-surface-primary` | `--startline-surface-primary` | Neutral/White (#ffffff) | Adaptive/surface (#1b2a28) | Default surface for cards, sheets, fields. |
 | Surface/Secondary | `*-surface-secondary` | `--startline-surface-secondary` | Neutral/Mist (#f3f7f6) | Adaptive/raised (#253936) | Secondary surface for grouped or nested areas. |
 | Surface/Warm | `*-surface-warm` | `--startline-surface-warm` | Sand/100 (#f8f2e8) | Adaptive/canvas (#111c1b) | Warm app canvas behind cards (sand). |
@@ -68,7 +70,9 @@ Themes: `light` (default), `dark`, `ic-light`, `ic-dark` (high contrast) via `da
 | Control/LG | 52px | `h-control-lg / size-control-lg` | 52 px control height — main screen actions and fields. |
 | Control/MD | 44px | `h-control-md / size-control-md` | 44 px control height — minimum touch target. |
 | Control/SM | 36px | `h-control-sm / size-control-sm` | 36 px control height — compact. |
+| Control/XL | 56px | `h-control-xl / size-control-xl` | 56 px — Pill button, the main screen call to action. |
 | Radius/2XL | 28px | `rounded-2xl` | 28 px — bottom navigation bar. |
+| Radius/Card | 20px | `rounded-card` | 20 px — v3.1 cards and tiles (Choice card, Priority tile, quick actions). |
 | Radius/LG | 16px | `rounded-lg` | 16 px — cards. |
 | Radius/MD | 12px | `rounded-md` | 12 px — buttons and fields. |
 | Radius/None | 0px | `rounded-none` | Square corners. |
@@ -99,6 +103,9 @@ Themes: `light` (default), `dark`, `ic-light`, `ic-dark` (high contrast) via `da
 | Startline / Label | `text-label` | Plus Jakarta Sans SemiBold | 12/16px | Field labels, badge and chip text. |
 | Startline / Caption | `text-caption` | Plus Jakarta Sans Regular | 12/16px | Helper text, metadata, timestamps. |
 | Startline / Navigation | `text-navigation` | Plus Jakarta Sans SemiBold | 12/16px | Bottom navigation labels. |
+| Startline / Section title | `text-section-title` | Plus Jakarta Sans SemiBold | 18/24px | Section headings on a screen ("Recommended for you"). |
+| Startline / Title | `text-title` | Plus Jakarta Sans Bold | 20/26px | Prominent card titles, e.g. reminder cards. |
+| Startline / Tab label | `text-tab-label` | Plus Jakarta Sans SemiBold | 11/14px | Bottom navigation tab labels (11/14). Keep labels to one short word. |
 
 ## Elevation
 
@@ -108,3 +115,5 @@ Themes: `light` (default), `dark`, `ic-light`, `ic-dark` (high contrast) via `da
 | Startline / Elevation / Splash | `shadow-splash` |
 | Startline / Elevation / 100 | `shadow-100` |
 | Startline / Elevation / 200 | `shadow-200` |
+| Startline / Elevation / Action | `shadow-action` |
+| Startline / Elevation / Floating | `shadow-floating` |

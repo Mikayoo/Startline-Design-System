@@ -14,7 +14,7 @@ describe("BackButton", () => {
 
   it("is a 44 px target that mirrors in RTL", () => {
     const { container } = render(<BackButton />);
-    expect(screen.getByRole("button").className).toContain("size-control-md");
+    expect(screen.getByRole("button", { name: "Back" }).className).toContain("size-control-md");
     expect(container.querySelector("svg")!.getAttribute("class")).toContain("rtl:-scale-x-100");
   });
 

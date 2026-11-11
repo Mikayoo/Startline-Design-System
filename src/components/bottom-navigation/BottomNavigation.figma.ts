@@ -1,4 +1,4 @@
-// url=https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=94-2406
+// url=https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=604-1438
 // source=src/components/bottom-navigation/BottomNavigation.tsx
 // component=BottomNavigation
 import figma from "figma";

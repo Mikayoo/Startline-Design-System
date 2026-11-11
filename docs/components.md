@@ -4,7 +4,7 @@
 `import { … } from "@startline/ui"` · * = required prop · Full rules: [CLAUDE.md](../CLAUDE.md) · Tokens: [tokens.md](tokens.md)
 
 - [Button](#button) — Button — triggers an action
-- [Icon](#icon) — Icon — the 12 Startline icons: 24 px outline, 1.8 px stroke at every size (like Figma), coloured by the surrounding text colour (`currentColor`)
+- [Icon](#icon) — Icon — the Startline v3.1 icon set (39 icons): 24 px outline, 1.75 px stroke at every size (like Figma), coloured by the surrounding text colour (`currentColor`)
 - [AppIcon](#appicon) — App icon — white pathmark on the brand teal tile, 28/128 corner radius
 - [LogoLockup](#logolockup) — Logo lockup — pathmark + "Startline" wordmark (Plus Jakarta Sans Medium, −2 % tracking)
 - [LogoMark](#logomark) — Logo mark — the Startline pathmark symbol alone
@@ -12,7 +12,7 @@
 - [SearchField](#searchfield) — Search field — single-line input for searching resources or lists, with a search icon and an optional clear button
 - [TextField](#textfield) — Text field — persistent label, editable value and optional helper
 - [Switch](#switch) — Switch — turns a setting on or off immediately, without a Save button
-- [ChoiceCard](#choicecard) — Choice card — a large tappable option with label and optional helper, for onboarding and questionnaires
+- [ChoiceCard](#choicecard) — Choice card — a selectable answer with icon tile, title and optional helper, for onboarding questions
 - [Badge](#badge) — Badge — short, read-only status label (Neutral, Info, Success, Warning, Error) with an optional dot
 - [Chip](#chip) — Chip — a selectable filter
 - [SourceIndicator](#sourceindicator) — Source indicator — shows where information comes from, to build trust
@@ -20,12 +20,19 @@
 - [ResourceListItem](#resourcelistitem) — Resource list item — a service or resource (provider, title, description, source) for comparison in a list
 - [GuidanceCard](#guidancecard) — Guidance card — supporting information with no task action
 - [SettingsRow](#settingsrow) — Settings row — a row in a settings list with label, current value and chevron; opens a detail screen
-- [BackButton](#backbutton) — Back button — 44 px round button that returns to the previous screen
-- [BottomNavigation](#bottomnavigation) — Bottom navigation — fixed tab bar for the 5 primary destinations (Home, My Path, Ask, Resources, Profile)
+- [BackButton](#backbutton) — Back button — Icon button with the back arrow, top-start on detail screens without bottom navigation
+- [BottomNavigation](#bottomnavigation) — Bottom navigation — floating tab bar for the 5 primary destinations (Home, My Path, Ask, Resources, Profile)
 - [AskStartlineAction](#askstartlineaction) — Ask Startline action — opens the AI assistant with the current context
 - [AIAssistantPanel](#aiassistantpanel) — AI Assistant Panel — one step of an AI conversation
 - [AIAssistantQuestion](#aiassistantquestion) — The user's question, quoted inside an `answer` panel (Figma: "You asked" box).
 - [AIAssistantSuggestions](#aiassistantsuggestions) — Suggested questions in an `entry` panel.
+- [PillButton](#pillbutton) — Pill button — the main call to action on a screen (56 px, usually full width at the bottom, or on a photo hero with `variant="on-dark"`)
+- [IconButton](#iconbutton) — Icon button — round 44 px button with a single icon (back, notifications, search, more)
+- [PlanCard](#plancard) — Plan card — a compact step in the user's plan: thumbnail, step tag, topic, title, time and location
+- [ReviewRow](#reviewrow) — Review row — one answer in a review or summary list: icon tile, label, value and a Change action that returns to the question
+- [SelectField](#selectfield) — Select field — a tappable field showing a small label and the chosen value (Figma `Value`); opens the device's native list of options (best on phones and with screen readers)
+- [ToggleRow](#togglerow) — Toggle row — a labelled Switch in a list (reminders, privacy, offline)
+- [PriorityTile](#prioritytile) — Priority tile — square selectable tile (icon + label) for picking goals or priorities, in a 2-column grid
 
 ## Button
 
@@ -57,20 +64,20 @@ Also accepts the standard HTML attributes of its root element (`className`, `id`
 
 ## Icon
 
-Icon — the 12 Startline icons: 24 px outline, 1.8 px stroke at every size (like Figma), coloured by the surrounding text
+Icon — the Startline v3.1 icon set (39 icons): 24 px outline, 1.75 px stroke at every size (like Figma), coloured by the surrounding text
 colour (`currentColor`). Size follows `size-*` classes (default 24 px; Button sets 20 px).
 Directional icons (chevron-right) mirror automatically in right-to-left layouts.
 
 Interactive icons need a 44 px target — put them inside Button or BackButton, never alone.
-For an icon that is not in this set, use `lucide-react` with `strokeWidth={1.8}`.
+For an icon that is not in this set, use `lucide-react` with `strokeWidth={1.75}`.
 
-Figma: Startline / Icon — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=93-1995
+Figma: Startline / Icon — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=831-3828
 
 Source: `src/components/icon/Icon.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `name` * | `"path" \| "search" \| "chevron-right" \| "check" \| "close" \| "home" \| "resources" \| "chat" \| "profile" \| "bell" \| "calendar" \| "map-pin"` |  | Which Startline icon (Figma `Name`). |
+| `name` * | `IconName` |  | Which Startline icon (Figma `Name`). |
 | `label` | `string` |  | Accessible name. Omit for decorative icons next to text (they are hidden from screen readers). Set it when the icon is the only content of a control or conveys meaning on its own. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
@@ -236,29 +243,28 @@ Also accepts the standard HTML attributes of its root element (`className`, `id`
 
 ## ChoiceCard
 
-Choice card — a large tappable option with label and optional helper, for onboarding and
-questionnaires. `single` behaves as a radio button, `multiple` as a checkbox (native inputs, so
-keyboard and screen readers work). Wrap a group in `<fieldset>` with a `<legend>` question.
-Use Switch for instant settings.
+Choice card — a selectable answer with icon tile, title and optional helper, for onboarding
+questions. Native radio/checkbox underneath, so keyboard and screen readers work. Wrap a group in
+`<fieldset>` with the question as `<legend>`. Use Toggle row for settings.
 
-Figma: Startline / Choice card — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=68-1043
+Figma: Startline / Choice card — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=592-599
 
 Source: `src/components/choice-card/ChoiceCard.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `label` * | `string` |  | Main text (Figma `Label`). |
-| `helper` | `string` |  | Supporting text under the label (Figma `Helper` + `Show helper`). |
-| `selection` | `"multiple" \| "single"` | `single` | Figma `Selection`. `single` = pick one (radio — give all cards in a group the same `name`); `multiple` = pick several (checkbox). |
+| `title` * | `string` |  | Figma `Title` — the answer. |
+| `helper` | `string` |  | Figma `Helper` (+ `Show helper`) — one line of explanation. |
+| `icon` | `IconName` |  | Figma `Icon` — shown in the tile at the start. |
+| `control` | `"check" \| "radio"` | `radio` | Figma `Control`: `radio` = pick one (give every card in the group the same `name`); `check` = pick several. |
 | `onCheckedChange` | `((checked: boolean) => void)` |  | Called with the new checked state (Figma `State=Selected`). |
 | `onChange` | `ChangeEventHandler<HTMLInputElement, Element>` |  |  |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
 
 ```tsx
-<fieldset><legend>What do you need help with first?</legend>
-  <ChoiceCard name="priority" value="housing" label="Housing" helper="Find a place to live" />
-  <ChoiceCard name="priority" value="health" label="Health" />
+<fieldset><legend>What is your situation?</legend>
+  <ChoiceCard name="status" value="claimant" icon="shield" title="Refugee claimant" helper="Waiting for a decision" />
 </fieldset>
 ```
 
@@ -275,7 +281,7 @@ Source: `src/components/badge/Badge.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `status` | `"neutral" \| "info" \| "success" \| "warning" \| "error"` | `neutral` | Figma `Status`. |
+| `status` | `"info" \| "neutral" \| "success" \| "warning" \| "error"` | `neutral` | Figma `Status`. |
 | `size` | `"md" \| "sm"` | `sm` | Figma `Size`: sm 24 px, md 32 px. |
 | `dot` | `boolean` | `true` | Figma `Show dot`. |
 
@@ -407,7 +413,7 @@ Source: `src/components/guidance-card/GuidanceCard.tsx`
 | `title` * | `string` |  | Figma `Title`. |
 | `body` | `string` |  | Figma `Body` (+ `Show body`). |
 | `layout` | `"row" \| "card" \| "tile"` | `card` | Figma `Layout`: `card` standalone; `row` inside a grouped list (no box); `tile` compact, for a two-column grid of categories. |
-| `tone` | `"neutral" \| "info"` | `neutral` | Figma `Tone`: `info` tints helpful tips. |
+| `tone` | `"info" \| "neutral"` | `neutral` | Figma `Tone`: `info` tints helpful tips. |
 | `titleAs` | `"h2" \| "h3" \| "h4"` | `h3` | Heading level of the title. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
@@ -444,17 +450,18 @@ Also accepts the standard HTML attributes of its root element (`className`, `id`
 
 ## BackButton
 
-Back button — 44 px round button that returns to the previous screen. Use top-start on detail
-screens without bottom navigation. Not a general icon button. Mirrors in right-to-left layouts.
-Figma `State=Pressed` is the CSS :active state.
+Back button — Icon button with the back arrow, top-start on detail screens without bottom
+navigation. Mirrors in right-to-left layouts. Same as `<IconButton icon="arrow-left" label="Back" />`.
 
-Figma: Startline / Back button — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=68-1044
+Figma: Startline / Icon button (Arrow left) — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=592-559
 
 Source: `src/components/back-button/BackButton.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `label` | `string` | `Back` | Accessible name, e.g. "Back" or "Back to Resources". Translate it. |
+| `variant` | `"light" \| "glass"` | `light` | Figma `Variant`: `light` on the warm background; `glass` on photos. |
+| `dot` | `boolean` |  | Small amber dot for unread items (e.g. notifications). Add the count to `label`. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
 
@@ -466,11 +473,12 @@ Also accepts the standard HTML attributes of its root element (`className`, `id`
 
 ## BottomNavigation
 
-Bottom navigation — fixed tab bar for the 5 primary destinations (Home, My Path, Ask, Resources,
-Profile). Only on top-level screens; detail screens use Back button. Keep it fixed below the
-scrolling content. Each item is a 44 px target; the current one is marked `aria-current="page"`.
+Bottom navigation — floating tab bar for the 5 primary destinations (Home, My Path, Ask, Resources,
+Profile). The active tab is a filled pill. Only on top-level screens; detail screens use a back
+Icon button. Float it 16 px above the bottom edge (`fixed inset-x-4 bottom-4`) over scrolling
+content. The current item is marked `aria-current="page"`.
 
-Figma: Startline / Bottom Navigation — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=94-2406
+Figma: Startline / Bottom Navigation — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=604-1438
 
 Source: `src/components/bottom-navigation/BottomNavigation.tsx`
 
@@ -569,3 +577,179 @@ Source: `src/components/ai-assistant-panel/AIAssistantPanel.tsx`
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
 
+
+---
+
+## PillButton
+
+Pill button — the main call to action on a screen (56 px, usually full width at the bottom, or on
+a photo hero with `variant="on-dark"`). One primary pill per screen. For compact actions inside
+cards and panels use Button.
+
+Figma: Startline / Pill button — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=592-550
+
+Source: `src/components/pill-button/PillButton.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `"primary" \| "secondary" \| "on-dark" \| "ghost"` | `primary` | Figma `Variant`: `primary` main action; `secondary` white alternative; `on-dark` white pill on photos and dark cards; `ghost` text only. |
+| `arrow` | `boolean` |  | Figma `Show arrow` — trailing arrow for "continue"-style actions. Mirrors in RTL. |
+| `asChild` | `boolean` |  | Render the child (e.g. a router Link) with pill styles. |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
+```tsx
+<PillButton arrow className="w-full">Continue</PillButton>
+```
+
+---
+
+## IconButton
+
+Icon button — round 44 px button with a single icon (back, notifications, search, more).
+
+Figma: Startline / Icon button — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=592-559
+
+Source: `src/components/icon-button/IconButton.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `icon` * | `IconName` |  | Figma `Icon` (instance swap) — any Startline icon name. |
+| `label` * | `string` |  | Accessible name, e.g. "Back", "Notifications". Required — the button has no visible text. |
+| `variant` | `"light" \| "glass"` | `light` | Figma `Variant`: `light` on the warm background; `glass` on photos. |
+| `dot` | `boolean` |  | Small amber dot for unread items (e.g. notifications). Add the count to `label`. |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
+```tsx
+<IconButton icon="bell" label="Notifications, 1 unread" dot />
+```
+
+---
+
+## PlanCard
+
+Plan card — a compact step in the user's plan: thumbnail, step tag, topic, title, time and
+location. The whole card is a link to the step. `state="next"` highlights the step to start now.
+Use Task card when the step needs a visible action button.
+
+Figma: Startline / Plan card — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=593-619
+
+Source: `src/components/plan-card/PlanCard.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `state` | `"next" \| "default"` | `default` | Figma `State`: `next` outlines the step to start now (show at most one). |
+| `step` | `string` |  | Figma `Step`, e.g. "Step 2". Shown in the tag when not `next`. |
+| `statusLabel` | `string` | `Start here` | Figma `Status label` — tag text in the `next` state. |
+| `topic` | `string` |  | Figma `Topic`, e.g. "Housing". |
+| `title` * | `string` |  | Figma `Title`. |
+| `time` | `string` |  | Figma `Time`, e.g. "About 20 min". |
+| `location` | `string` |  | Figma `Location`, e.g. "Kitchener". |
+| `image` | `string` |  | Thumbnail image URL (84 px square). |
+| `imageAlt` | `string` | `` | Thumbnail alt text; leave empty when the image is decorative. |
+| `href` * | `string` |  | Where the card goes — the whole card is one link. |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
+```tsx
+<PlanCard state="next" topic="Housing" title="Find a safe place to stay" time="About 20 min" location="Kitchener" image={img} href="/steps/housing" />
+```
+
+---
+
+## ReviewRow
+
+Review row — one answer in a review or summary list: icon tile, label, value and a Change action
+that returns to the question. Put rows in a `<ul>`. The action is announced as "Change Situation".
+
+Figma: Startline / Review row — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=593-626
+
+Source: `src/components/review-row/ReviewRow.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `icon` * | `IconName` |  | Figma `Icon`. |
+| `label` * | `string` |  | Figma `Label` — the question, e.g. "Situation". |
+| `value` * | `string` |  | Figma `Value` — the answer, e.g. "Refugee claimant". |
+| `actionLabel` | `string` | `Change` | Figma `Action label`. Translate it. |
+| `onAction` | `(() => void)` |  | Called by the Change action (go back to that question). |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
+```tsx
+<ReviewRow icon="file" label="Situation" value="Refugee claimant" onAction={() => goTo("status")} />
+```
+
+---
+
+## SelectField
+
+Select field — a tappable field showing a small label and the chosen value (Figma `Value`); opens
+the device's native list of options (best on phones and with screen readers). 64 px tall.
+Use Text field for typed answers.
+
+Figma: Startline / Select field — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=593-620
+
+Source: `src/components/select-field/SelectField.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `label` * | `string` |  | Figma `Label` — small text above the value. |
+| `options` * | `{ value: string; label: string; }[]` |  | The choices. |
+| `onValueChange` | `((value: string) => void)` |  | Called with the chosen value. |
+| `onChange` | `ChangeEventHandler<HTMLSelectElement, Element>` |  |  |
+| `placeholder` | `string` |  | Shown when nothing is chosen yet. |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
+```tsx
+<SelectField label="Province or territory" value={p} onValueChange={setP} options={provinces} />
+```
+
+---
+
+## ToggleRow
+
+Toggle row — a labelled Switch in a list (reminders, privacy, offline). Changes apply immediately.
+The label is connected to the switch, so tapping the text toggles it too.
+
+Figma: Startline / Toggle row — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=584-455
+
+Source: `src/components/toggle-row/ToggleRow.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `label` * | `string` |  | Figma `Label` — names the switch. |
+| `description` | `string` |  | Optional second line under the label. |
+| `rowClassName` | `string` |  | Classes for the row (the Switch gets `className`). |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
+```tsx
+<ToggleRow label="3 days before" checked={r3} onCheckedChange={setR3} />
+```
+
+---
+
+## PriorityTile
+
+Priority tile — square selectable tile (icon + label) for picking goals or priorities, in a
+2-column grid. Multiple selection; announce the limit (e.g. "2 of 3 selected") near the grid.
+
+Figma: Startline / Priority tile — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=593-582
+
+Source: `src/components/priority-tile/PriorityTile.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `icon` * | `IconName` |  | Figma `Icon`. |
+| `label` * | `string` |  | Figma `Label`, e.g. "Housing". |
+| `selected` | `boolean` |  | Figma `State=Selected`. Announced as "pressed". |
+| `onSelectedChange` | `((selected: boolean) => void)` |  | Called with the new selected state. |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
+```tsx
+<PriorityTile icon="home" label="Housing" selected={p.housing} onSelectedChange={(v) => set("housing", v)} />
+```

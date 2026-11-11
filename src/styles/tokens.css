@@ -40,6 +40,8 @@
   --startline-neutral-white: #ffffff;
   --startline-overlay-black-64: #000000a3;
   --startline-overlay-ink-48: #1733327a;
+  --startline-overlay-white-18: #ffffff2e;
+  --startline-overlay-white-28: #ffffff47;
   --startline-red-100: #fce8e6;
   --startline-red-600: #c84f45;
   --startline-red-700: #a83f37;
@@ -64,7 +66,9 @@
   --startline-control-lg: 52px;
   --startline-control-md: 44px;
   --startline-control-sm: 36px;
+  --startline-control-xl: 56px;
   --startline-radius-2xl: 28px;
+  --startline-radius-card: 20px;
   --startline-radius-lg: 16px;
   --startline-radius-md: 12px;
   --startline-radius-none: 0;
@@ -84,6 +88,7 @@
   --startline-spacing-6: 24px;
   --startline-spacing-8: 32px;
   --startline-font-size-2xl: 24px;
+  --startline-font-size-2xs: 11px;
   --startline-font-size-4xl: 36px;
   --startline-font-size-lg: 18px;
   --startline-font-size-md: 16px;
@@ -91,6 +96,7 @@
   --startline-font-size-sm: 14px;
   --startline-font-size-xl: 20px;
   --startline-font-size-xs: 12px;
+  --startline-line-height-2xs: 14px;
   --startline-line-height-3xl: 44px;
   --startline-line-height-card: 22px;
   --startline-line-height-lg: 28px;
@@ -128,6 +134,7 @@
   --startline-border-brand: var(--startline-teal-300);
   --startline-border-default: var(--startline-neutral-300);
   --startline-border-disabled: var(--startline-neutral-100);
+  --startline-border-glass: var(--startline-overlay-white-28);
   --startline-border-subtle: var(--startline-neutral-100);
   --startline-elevation-shadow: var(--startline-shadow-ink-12);
   --startline-focus-ring: var(--startline-teal-700);
@@ -140,6 +147,7 @@
   --startline-status-warning-subtle: var(--startline-amber-100);
   --startline-surface-brand: var(--startline-teal-700);
   --startline-surface-disabled: var(--startline-neutral-100);
+  --startline-surface-glass: var(--startline-overlay-white-18);
   --startline-surface-primary: var(--startline-neutral-white);
   --startline-surface-secondary: var(--startline-neutral-mist);
   --startline-surface-warm: var(--startline-sand-100);
@@ -177,6 +185,7 @@
     --startline-border-brand: var(--startline-adaptive-teal);
     --startline-border-default: var(--startline-adaptive-line);
     --startline-border-disabled: var(--startline-adaptive-subtle);
+    --startline-border-glass: var(--startline-overlay-white-28);
     --startline-border-subtle: var(--startline-adaptive-subtle);
     --startline-elevation-shadow: var(--startline-shadow-black-40);
     --startline-focus-ring: var(--startline-adaptive-teal);
@@ -189,6 +198,7 @@
     --startline-status-warning-subtle: var(--startline-adaptive-raised);
     --startline-surface-brand: var(--startline-adaptive-action);
     --startline-surface-disabled: var(--startline-adaptive-raised);
+    --startline-surface-glass: var(--startline-overlay-white-18);
     --startline-surface-primary: var(--startline-adaptive-surface);
     --startline-surface-secondary: var(--startline-adaptive-raised);
     --startline-surface-warm: var(--startline-adaptive-canvas);
@@ -227,6 +237,7 @@
     --startline-border-brand: var(--startline-adaptive-darkteal);
     --startline-border-default: var(--startline-adaptive-slate);
     --startline-border-disabled: var(--startline-neutral-100);
+    --startline-border-glass: var(--startline-overlay-white-28);
     --startline-border-subtle: var(--startline-adaptive-slate);
     --startline-elevation-shadow: var(--startline-shadow-ink-12);
     --startline-focus-ring: var(--startline-adaptive-darkteal);
@@ -239,6 +250,7 @@
     --startline-status-warning-subtle: var(--startline-amber-100);
     --startline-surface-brand: var(--startline-teal-700);
     --startline-surface-disabled: var(--startline-neutral-100);
+    --startline-surface-glass: var(--startline-overlay-white-18);
     --startline-surface-primary: var(--startline-neutral-white);
     --startline-surface-secondary: var(--startline-neutral-mist);
     --startline-surface-warm: var(--startline-sand-100);
@@ -277,6 +289,7 @@
     --startline-border-brand: var(--startline-adaptive-teal);
     --startline-border-default: var(--startline-adaptive-secondary);
     --startline-border-disabled: var(--startline-adaptive-subtle);
+    --startline-border-glass: var(--startline-overlay-white-28);
     --startline-border-subtle: var(--startline-adaptive-secondary);
     --startline-elevation-shadow: var(--startline-shadow-black-40);
     --startline-focus-ring: var(--startline-adaptive-white);
@@ -289,6 +302,7 @@
     --startline-status-warning-subtle: var(--startline-adaptive-raised);
     --startline-surface-brand: var(--startline-adaptive-action);
     --startline-surface-disabled: var(--startline-adaptive-raised);
+    --startline-surface-glass: var(--startline-overlay-white-18);
     --startline-surface-primary: var(--startline-adaptive-surface);
     --startline-surface-secondary: var(--startline-adaptive-raised);
     --startline-surface-warm: var(--startline-adaptive-canvas);
@@ -327,6 +341,7 @@
   --startline-border-brand: var(--startline-adaptive-teal);
   --startline-border-default: var(--startline-adaptive-line);
   --startline-border-disabled: var(--startline-adaptive-subtle);
+  --startline-border-glass: var(--startline-overlay-white-28);
   --startline-border-subtle: var(--startline-adaptive-subtle);
   --startline-elevation-shadow: var(--startline-shadow-black-40);
   --startline-focus-ring: var(--startline-adaptive-teal);
@@ -339,6 +354,7 @@
   --startline-status-warning-subtle: var(--startline-adaptive-raised);
   --startline-surface-brand: var(--startline-adaptive-action);
   --startline-surface-disabled: var(--startline-adaptive-raised);
+  --startline-surface-glass: var(--startline-overlay-white-18);
   --startline-surface-primary: var(--startline-adaptive-surface);
   --startline-surface-secondary: var(--startline-adaptive-raised);
   --startline-surface-warm: var(--startline-adaptive-canvas);
@@ -375,6 +391,7 @@
   --startline-border-brand: var(--startline-adaptive-darkteal);
   --startline-border-default: var(--startline-adaptive-slate);
   --startline-border-disabled: var(--startline-neutral-100);
+  --startline-border-glass: var(--startline-overlay-white-28);
   --startline-border-subtle: var(--startline-adaptive-slate);
   --startline-elevation-shadow: var(--startline-shadow-ink-12);
   --startline-focus-ring: var(--startline-adaptive-darkteal);
@@ -387,6 +404,7 @@
   --startline-status-warning-subtle: var(--startline-amber-100);
   --startline-surface-brand: var(--startline-teal-700);
   --startline-surface-disabled: var(--startline-neutral-100);
+  --startline-surface-glass: var(--startline-overlay-white-18);
   --startline-surface-primary: var(--startline-neutral-white);
   --startline-surface-secondary: var(--startline-neutral-mist);
   --startline-surface-warm: var(--startline-sand-100);
@@ -423,6 +441,7 @@
   --startline-border-brand: var(--startline-adaptive-teal);
   --startline-border-default: var(--startline-adaptive-secondary);
   --startline-border-disabled: var(--startline-adaptive-subtle);
+  --startline-border-glass: var(--startline-overlay-white-28);
   --startline-border-subtle: var(--startline-adaptive-secondary);
   --startline-elevation-shadow: var(--startline-shadow-black-40);
   --startline-focus-ring: var(--startline-adaptive-white);
@@ -435,6 +454,7 @@
   --startline-status-warning-subtle: var(--startline-adaptive-raised);
   --startline-surface-brand: var(--startline-adaptive-action);
   --startline-surface-disabled: var(--startline-adaptive-raised);
+  --startline-surface-glass: var(--startline-overlay-white-18);
   --startline-surface-primary: var(--startline-adaptive-surface);
   --startline-surface-secondary: var(--startline-adaptive-raised);
   --startline-surface-warm: var(--startline-adaptive-canvas);

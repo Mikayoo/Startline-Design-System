@@ -4,7 +4,12 @@ import { Icon } from "./Icon";
 import { ICON_NAMES } from "./icons";
 
 describe("Icon", () => {
-  it("has all 12 Figma icons", () => expect(ICON_NAMES).toHaveLength(12));
+  it("has the 38 v3.1 Figma icons plus close", () => expect(ICON_NAMES).toHaveLength(39));
+
+  it("keeps old names as aliases", () => {
+    const { container } = render(<Icon name="profile" />);
+    expect(container.querySelectorAll("path")).toHaveLength(2);
+  });
 
   it("is decorative (hidden) without a label", () => {
     const { container } = render(<Icon name="search" />);

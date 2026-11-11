@@ -3,7 +3,7 @@
 // component=BackButton
 import figma from "figma";
 
-// State=Pressed is the CSS :active state — no prop.
+// Legacy Back button (pre-v3.1). New screens use Startline / Icon button with Arrow left.
 export default {
   example: figma.code`<BackButton onClick={() => history.back()} />`,
   imports: ['import { BackButton } from "@startline/ui"'],

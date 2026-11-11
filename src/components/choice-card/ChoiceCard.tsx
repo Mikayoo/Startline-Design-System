@@ -1,59 +1,65 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Icon } from "../icon";
+import type { IconName } from "../icon/icons";
 
-export interface ChoiceCardProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type" | "onChange"> {
-  /** Main text (Figma `Label`). */
-  label: string;
-  /** Supporting text under the label (Figma `Helper` + `Show helper`). */
+export interface ChoiceCardProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type" | "onChange" | "title"> {
+  /** Figma `Title` — the answer. */
+  title: string;
+  /** Figma `Helper` (+ `Show helper`) — one line of explanation. */
   helper?: string;
+  /** Figma `Icon` — shown in the tile at the start. */
+  icon?: IconName;
   /**
-   * Figma `Selection`. `single` = pick one (radio — give all cards in a group the same `name`);
-   * `multiple` = pick several (checkbox).
-   * @default "single"
+   * Figma `Control`: `radio` = pick one (give every card in the group the same `name`);
+   * `check` = pick several.
+   * @default "radio"
    */
-  selection?: "single" | "multiple";
+  control?: "radio" | "check";
   /** Called with the new checked state (Figma `State=Selected`). */
   onCheckedChange?: (checked: boolean) => void;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 /**
- * Choice card — a large tappable option with label and optional helper, for onboarding and
- * questionnaires. `single` behaves as a radio button, `multiple` as a checkbox (native inputs, so
- * keyboard and screen readers work). Wrap a group in `<fieldset>` with a `<legend>` question.
- * Use Switch for instant settings.
+ * Choice card — a selectable answer with icon tile, title and optional helper, for onboarding
+ * questions. Native radio/checkbox underneath, so keyboard and screen readers work. Wrap a group in
+ * `<fieldset>` with the question as `<legend>`. Use Toggle row for settings.
  *
- * Figma: Startline / Choice card — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=68-1043
+ * Figma: Startline / Choice card — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=592-599
  *
  * @example
- * <fieldset><legend>What do you need help with first?</legend>
- *   <ChoiceCard name="priority" value="housing" label="Housing" helper="Find a place to live" />
- *   <ChoiceCard name="priority" value="health" label="Health" />
+ * <fieldset><legend>What is your situation?</legend>
+ *   <ChoiceCard name="status" value="claimant" icon="shield" title="Refugee claimant" helper="Waiting for a decision" />
  * </fieldset>
  */
 export const ChoiceCard = React.forwardRef<HTMLInputElement, ChoiceCardProps>(function ChoiceCard(
-  { label, helper, selection = "single", onCheckedChange, onChange, className, disabled, ...props },
+  { title, helper, icon, control = "radio", onCheckedChange, onChange, className, disabled, ...props },
   ref,
 ) {
-  const single = selection === "single";
+  const radio = control === "radio";
   return (
     <label
       className={cn(
-        "group flex w-full cursor-pointer items-center gap-3 rounded-lg border border-border-subtle bg-surface-primary p-4 text-text-brand",
-        "has-[input:checked]:border-(length:--startline-border-medium) has-[input:checked]:border-action-primary has-[input:checked]:bg-background-brand-subtle",
+        "group flex w-full cursor-pointer items-center gap-3 rounded-card border-(length:--startline-border-medium) border-transparent bg-surface-primary py-4 ps-4 pe-4.5 shadow-raised",
+        "has-[input:checked]:border-action-primary has-[input:checked]:bg-background-brand-subtle",
         "has-[input:focus-visible]:outline-2 has-[input:focus-visible]:outline-offset-2 has-[input:focus-visible]:outline-focus-ring",
-        disabled && "cursor-not-allowed bg-surface-disabled text-text-disabled",
+        disabled && "cursor-not-allowed opacity-60",
         className,
       )}
     >
-      <span className="flex min-w-0 flex-1 flex-col gap-1">
-        <span className="text-button">{label}</span>
-        {helper ? <span className="text-body">{helper}</span> : null}
+      {icon ? (
+        <span aria-hidden className="flex size-control-md shrink-0 items-center justify-center rounded-md bg-background-brand-subtle text-text-brand group-has-[input:checked]:bg-surface-primary [&_svg]:size-5.5">
+          <Icon name={icon} />
+        </span>
+      ) : null}
+      <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+        <span className="text-card-title text-text-primary">{title}</span>
+        {helper ? <span className="text-body text-text-secondary">{helper}</span> : null}
       </span>
       <input
         ref={ref}
-        type={single ? "radio" : "checkbox"}
+        type={radio ? "radio" : "checkbox"}
         disabled={disabled}
         className="peer sr-only"
         onChange={(e) => {
@@ -64,16 +70,13 @@ export const ChoiceCard = React.forwardRef<HTMLInputElement, ChoiceCardProps>(fu
       />
       <span
         aria-hidden
-        // Checkbox corner is fixed 5 px brand geometry in Figma (not a token).
-        style={single ? undefined : { borderRadius: 5 }}
         className={cn(
-          "flex size-5 shrink-0 items-center justify-center border-(length:--startline-border-medium) border-text-brand text-text-inverse",
-          single && "rounded-full",
-          "peer-checked:border-action-primary peer-checked:bg-action-primary",
-          "[&>*]:invisible peer-checked:[&>*]:visible",
+          "flex size-6 shrink-0 items-center justify-center border-(length:--startline-border-medium) border-border-default text-text-inverse",
+          radio ? "rounded-full" : "rounded-sm",
+          "peer-checked:border-action-primary peer-checked:bg-action-primary [&>*]:invisible peer-checked:[&>*]:visible",
         )}
       >
-        {single ? <span className="size-2 rounded-full bg-text-inverse" /> : <Icon name="check" className="size-3.5" />}
+        {radio ? <span className="size-2.25 rounded-full bg-text-inverse" /> : <Icon name="check" className="size-4" />}
       </span>
     </label>
   );
