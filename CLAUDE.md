@@ -77,7 +77,7 @@ Status: ⏳ planned · 🚧 in progress · ✅ done (stories + Code Connect + te
 
 | Component | Use when | Status |
 |---|---|---|
-| Button | Actions. One primary per screen | ⏳ |
+| Button | Actions. One primary per screen | ✅ |
 | Icon | The 12 Startline icons; Lucide for anything else | ⏳ |
 | Logo / AppIcon | Brand mark and lockup | ⏳ |
 | Avatar | A person, by initials or icon | ⏳ |
@@ -104,12 +104,18 @@ Every component lives in `src/components/<kebab-name>/` with five files:
 ```
 Button.tsx          component (shadcn base + cva variants, tokens only, JSDoc from Figma description)
 Button.stories.tsx  one story per Figma variant + "All variants"; parameters.design = Figma link
-Button.figma.tsx    Code Connect mapping Figma properties → props
+Button.figma.ts     Code Connect template (parserless `figma.code`) mapping Figma properties → props
 Button.test.tsx     render, states, keyboard, axe accessibility
 index.ts            exports
 ```
 
 Then export it from `src/index.ts`, update the table above and run the checks.
+`scripts/no-hardcoded-values.test.ts` fails the build if a component contains a raw colour or an
+arbitrary Tailwind value (`p-[13px]`). Stories and tests may use layout-only arbitrary values.
+
+Code Connect files are `.figma.ts` templates (not `.figma.tsx` / `figma.connect()`). Map every Figma
+property; `State` Hover/Pressed are dropped, `State=Disabled` → `disabled`. Validate with
+`npx figma connect parse`. Visual QA images live in `docs/qa/<component>/`.
 
 ## Commands
 

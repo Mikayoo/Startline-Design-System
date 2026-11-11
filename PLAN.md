@@ -138,7 +138,9 @@ public too (only people with Figma access can open it).
 Folder per component, same pattern everywhere (`src/components/button/`):
 - `Button.tsx` — shadcn base restyled with tokens only (no raw hex/px); variants via `cva`.
 - `Button.stories.tsx` — one story per Figma variant + an "All variants" grid; Figma link in parameters.
-- `Button.figma.tsx` — Code Connect: `figma.connect(Button, "<figma url>?node-id=94-2027", { props })`.
+- `Button.figma.ts` — Code Connect parserless template (`figma.code`), the current Code Connect format
+  (changed from `.figma.tsx` after reading Figma's Code Connect guide). Requires the components to stay
+  published and an Organization/Enterprise Figma plan to publish.
 - `Button.test.tsx` — renders, disabled, keyboard focus, axe accessibility check.
 - `index.ts` — exports; `src/index.ts` re-exports everything.
 
@@ -215,3 +217,9 @@ All edits are in place: no component was recreated, so existing screen instances
   (Patterns), `Bright Color`, text styles `Body text` and `Card tag`.
 - Kept, still DEPRECATED: `Primary Button` (194 uses), `Secondary Button` (24), `Notification` (2).
   Not in the code library; agents are told not to use them.
+
+## Progress log
+- 2026-11-10 Stop 1 approved: shadcn → Startline mapping in `src/styles/theme.css`.
+- 2026-11-10 Button built. Matches Figma in light and dark (measured: heights 44/52, padding 20/24,
+  radius 12, font 600 14/20, colours exact; widths within 1 px from text rendering). Comparison in
+  `docs/qa/button/comparison.png`. Fixed in Figma: Destructive variants' label was not linked to `Label`.

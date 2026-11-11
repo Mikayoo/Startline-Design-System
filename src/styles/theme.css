@@ -1,0 +1,55 @@
+/*
+ * shadcn/ui → Startline token mapping (approved 2026-11-10, Stop 1).
+ * shadcn components use these names; each points at a Startline semantic token,
+ * so every shadcn component follows the 4 Startline themes automatically.
+ *
+ * Declared on [data-theme] too, so a nested themed wrapper recomputes them.
+ */
+:root,
+[data-theme] {
+  --background: var(--startline-surface-primary);
+  --foreground: var(--startline-text-primary);
+  --card: var(--startline-surface-primary);
+  --card-foreground: var(--startline-text-primary);
+  --popover: var(--startline-surface-primary);
+  --popover-foreground: var(--startline-text-primary);
+  --primary: var(--startline-action-primary);
+  --primary-foreground: var(--startline-text-inverse);
+  --secondary: var(--startline-action-secondary);
+  --secondary-foreground: var(--startline-text-brand);
+  --muted: var(--startline-background-subtle);
+  --muted-foreground: var(--startline-text-secondary);
+  --accent: var(--startline-action-tertiary-hover);
+  --accent-foreground: var(--startline-text-brand);
+  --destructive: var(--startline-action-danger);
+  --destructive-foreground: var(--startline-text-on-danger);
+  --border: var(--startline-border-subtle);
+  --input: var(--startline-border-default);
+  --ring: var(--startline-focus-ring);
+  --overlay: var(--startline-overlay-scrim);
+  --radius: var(--startline-radius-md);
+}
+
+/* Tailwind utilities with shadcn names: bg-primary, text-muted-foreground, ring-ring … */
+@theme inline {
+  --color-background: var(--startline-surface-primary);
+  --color-foreground: var(--startline-text-primary);
+  --color-card: var(--startline-surface-primary);
+  --color-card-foreground: var(--startline-text-primary);
+  --color-popover: var(--startline-surface-primary);
+  --color-popover-foreground: var(--startline-text-primary);
+  --color-primary: var(--startline-action-primary);
+  --color-primary-foreground: var(--startline-text-inverse);
+  --color-secondary: var(--startline-action-secondary);
+  --color-secondary-foreground: var(--startline-text-brand);
+  --color-muted: var(--startline-background-subtle);
+  --color-muted-foreground: var(--startline-text-secondary);
+  --color-accent: var(--startline-action-tertiary-hover);
+  --color-accent-foreground: var(--startline-text-brand);
+  --color-destructive: var(--startline-action-danger);
+  --color-destructive-foreground: var(--startline-text-on-danger);
+  --color-border: var(--startline-border-subtle);
+  --color-input: var(--startline-border-default);
+  --color-ring: var(--startline-focus-ring);
+  --color-overlay: var(--startline-overlay-scrim);
+}

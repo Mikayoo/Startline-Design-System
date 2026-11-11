@@ -10,10 +10,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "isolatedModules": true,
+    "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "types": ["node", "vitest/globals"],
+    "types": ["node", "vitest/globals", "@figma/code-connect/figma-types"],
     "baseUrl": ".",
     "paths": { "@/*": ["src/*"] }
   },

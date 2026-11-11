@@ -1,8 +1,8 @@
 {
   "codeConnect": {
-    "parser": "react",
-    "include": ["src/components/**/*.figma.tsx"],
-    "label": "React",
-    "importPaths": { "src/components/*": "@startline/ui" }
+    "include": [
+      "src/components/**/*.figma.ts"
+    ],
+    "label": "React"
   }
 }

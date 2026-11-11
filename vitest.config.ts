@@ -1,5 +1,5 @@
 import { defineConfig, mergeConfig } from "vitest/config";
-import viteConfig from "./vite.config";
+import viteConfig from "./vite.config.ts";
 
 export default mergeConfig(
   { ...viteConfig, plugins: (viteConfig.plugins ?? []).flat().filter((p) => !(p && typeof p === "object" && "name" in p && p.name === "vite:dts")) },
