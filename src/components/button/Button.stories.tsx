@@ -69,7 +69,10 @@ export const AllVariants: Story = {
   ),
 };
 
-/** Pixel-comparison layout: identical to the Figma QA frame (32 px padding, 32/16 px gaps). */
+/**
+ * Pixel-comparison layout, identical to the Figma QA frame: 32 px padding, rows 56 px tall with 16 px
+ * between them, and each button centred in a fixed cell (160 / 160 / 240 px) so the columns line up.
+ */
 export const FigmaComparison: Story = {
   tags: ["!autodocs"],
   parameters: { layout: "fullscreen" },
@@ -77,12 +80,18 @@ export const FigmaComparison: Story = {
     <div className="inline-flex flex-col gap-4 bg-surface-primary p-8">
       {variants.flatMap((variant) =>
         sizes.map((size) => (
-          <div key={`${variant}-${size}`} className="flex items-center gap-8">
-            <Button variant={variant} size={size}>Continue</Button>
-            <Button variant={variant} size={size} disabled>Continue</Button>
-            <Button variant={variant} size={size} leadingIcon={<Icon name="search" />} trailingIcon={<Icon name="chevron-right" />}>
-              Continue
-            </Button>
+          <div key={`${variant}-${size}`} className="flex h-14 items-center">
+            <div className="flex w-40 justify-center">
+              <Button variant={variant} size={size}>Continue</Button>
+            </div>
+            <div className="flex w-40 justify-center">
+              <Button variant={variant} size={size} disabled>Continue</Button>
+            </div>
+            <div className="flex w-60 justify-center">
+              <Button variant={variant} size={size} leadingIcon={<Icon name="search" />} trailingIcon={<Icon name="chevron-right" />}>
+                Continue
+              </Button>
+            </div>
           </div>
         )),
       )}
