@@ -5,7 +5,7 @@ Startline's design system lives in Figma (file `TiHKqEUApUi1FNNtRGzAC7`). The go
 library on GitHub that Claude and other agents can read and build with correctly: tokens that match
 Figma one-to-one, components whose props are the Figma property names, a Storybook catalog, and a
 Code Connect file per component so Figma Dev Mode points at the real code.
-The working folder `/Users/mikayoos/Startlne-Design-system` is empty (not a git repo yet).
+The working folder was empty (not a git repo yet).
 
 ## Figma audit (read 2026-11-10)
 
