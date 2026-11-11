@@ -63,6 +63,7 @@ Themes: `light` (default), `dark`, `ic-light`, `ic-dark` (high contrast) via `da
 | Avatar/MD | 40px | `h-avatar-md / size-avatar-md` |  |
 | Avatar/SM | 32px | `h-avatar-sm / size-avatar-sm` |  |
 | Border/Focus | 2px | `—` | 2 px focus ring width. |
+| Border/Medium | 1.5px | `—` | 1.5 px — selection outlines and radio/checkbox indicators. |
 | Border/Thin | 1px | `—` | 1 px default border width. |
 | Control/LG | 52px | `h-control-lg / size-control-lg` | 52 px control height — main screen actions and fields. |
 | Control/MD | 44px | `h-control-md / size-control-md` | 44 px control height — minimum touch target. |

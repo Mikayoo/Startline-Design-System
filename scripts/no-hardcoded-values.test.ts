@@ -21,7 +21,8 @@ walk("src/components");
 const RULES: [string, RegExp][] = [
   ["raw hex colour", /#[0-9a-fA-F]{3,8}\b/],
   ["raw rgb/hsl colour", /\b(rgb|rgba|hsl|hsla)\(/],
-  ["arbitrary Tailwind value", /\b[a-z-]+-\[[^\]]+\]/],
+  // Arbitrary *values* (p-[13px], text-[#fff], w-[calc(..)]). Arbitrary *variants* like data-[state=checked]: are fine.
+  ["arbitrary Tailwind value", /-\[(?:#|-?\d|\.\d|rgb|hsl|var\(|calc\()/],
   // RTL: use start/end (ps/pe, ms/me, start-/end-, text-start, rounded-s/e, border-s/e) not left/right.
   ["physical left/right utility (not RTL-safe)", /(?<![\w-])(pl|pr|ml|mr|left|right|rounded-(?:l|r|tl|tr|bl|br)|border-(?:l|r)|scroll-(?:ml|mr|pl|pr))-[\w.[]|(?<![\w-])text-(?:left|right)\b/],
 ];
