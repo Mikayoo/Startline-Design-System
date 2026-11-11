@@ -1,0 +1,18 @@
+/* @startline/ui stylesheet — import once in your app: import "@startline/ui/styles.css"; */
+/* Font: dist/fonts.css is prepended at build (scripts/postbuild.ts); Storybook loads it in .storybook/preview.tsx. */
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./tailwind-theme.css";
+
+@source "../";
+
+@layer base {
+  html {
+    font-family: var(--startline-font-family);
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background-color: var(--startline-surface-warm);
+    color: var(--startline-text-primary);
+  }
+}
