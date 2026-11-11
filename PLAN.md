@@ -210,7 +210,8 @@ All edits are in place: no component was recreated, so existing screen instances
 ### Left as intentional fine geometry (not tokenised)
 - Choice card checkbox radius 5 px (20 px box), Switch knob inset 3 px.
 
-### Awaiting your decision
-- Delete `Sec Notification`, duplicate AI panel, `Bright Color`, `Body text`, `Card tag` (all unused)?
-- Swap the 194 + 24 old button instances to `Startline / Button`? The old ones are 20 px radius with
-  104 px side padding, so screens would visibly change.
+### Decisions (2026-11-10)
+- Deleted after a 16-page usage scan showed 0 uses: `Sec Notification`, duplicate `AI Assistant Panel`
+  (Patterns), `Bright Color`, text styles `Body text` and `Card tag`.
+- Kept, still DEPRECATED: `Primary Button` (194 uses), `Secondary Button` (24), `Notification` (2).
+  Not in the code library; agents are told not to use them.
