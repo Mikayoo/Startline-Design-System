@@ -89,6 +89,8 @@ Figma component properties become React props, so Figma and code read the same:
 
 All 19 Figma components are built (✅ stories + Code Connect + tests, checked against Figma in light and
 dark). Full props, types and defaults: **[docs/components.md](docs/components.md)** (generated — read it).
+Same data as JSON for tools: **[docs/components.manifest.json](docs/components.manifest.json)** — name, Figma node,
+import line, every prop with `values` and `default`. Check it before using a prop.
 
 | Component | Use when | Key props |
 |---|---|---|
@@ -150,7 +152,7 @@ property; `State` Hover/Pressed are dropped, `State=Disabled` → `disabled`. Va
 ```bash
 npm run dev            # Storybook on http://localhost:6006
 npm run tokens         # regenerate tokens.css + docs/tokens.md from tokens/figma-variables.json
-npm run docs           # regenerate docs/components.md from component source
+npm run docs           # regenerate docs/components.md + components.manifest.json from component source
 npm run typecheck
 npm run lint
 npm test

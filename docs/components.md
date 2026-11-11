@@ -41,8 +41,8 @@ Source: `src/components/button/Button.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `variant` | `"primary" \| "secondary" \| "tertiary" \| "destructive"` | `"primary"` | Visual emphasis (Figma `Variant`). - `primary` — the one main action on a screen - `secondary` — alternative actions - `tertiary` — low-emphasis text action - `destructive` — deletes or removes something |
-| `size` | `"md" \| "lg"` | `"md"` | Height (Figma `Size`). `lg` = 52 px for main screen actions; `md` = 44 px inside cards and rows. |
+| `variant` | `"primary" \| "secondary" \| "tertiary" \| "destructive"` | `primary` | Visual emphasis (Figma `Variant`). - `primary` — the one main action on a screen - `secondary` — alternative actions - `tertiary` — low-emphasis text action - `destructive` — deletes or removes something |
+| `size` | `"md" \| "lg"` | `md` | Height (Figma `Size`). `lg` = 52 px for main screen actions; `md` = 44 px inside cards and rows. |
 | `leadingIcon` | `ReactNode` |  | Icon before the label (Figma `Leading icon`). Use an `Icon` or Lucide icon; sized to 20 px. |
 | `trailingIcon` | `ReactNode` |  | Icon after the label (Figma `Trailing icon`), e.g. a chevron for "continue". |
 | `asChild` | `boolean` |  | Render the child element (e.g. a router `<Link>`) with button styles instead of a `<button>`. |
@@ -92,7 +92,7 @@ Source: `src/components/logo/Logo.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `title` | `string` | `"Startline"` | Accessible name. |
+| `title` | `string` | `Startline` | Accessible name. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
 
@@ -110,8 +110,8 @@ Source: `src/components/logo/Logo.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `layout` | `"horizontal" \| "stacked"` | `"horizontal"` | Figma `Layout`. `horizontal` for headers; `stacked` for splash and empty states. |
-| `theme` | `LogoTheme` | `"color"` | Figma `Theme`. |
+| `layout` | `"horizontal" \| "stacked"` | `horizontal` | Figma `Layout`. `horizontal` for headers; `stacked` for splash and empty states. |
+| `theme` | `LogoTheme` | `color` | Figma `Theme`. |
 | `markSize` | `number` |  | Height of the symbol in px; the wordmark scales with it (Figma: 76 horizontal, 96 stacked). |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
@@ -130,7 +130,7 @@ Source: `src/components/logo/Logo.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `theme` | `LogoTheme` | `"color"` | Figma `Theme`. `color` on light or dark app surfaces (brand gradients); `mono` one-colour (Text/Primary); `inverse` on brand-filled surfaces (Text/Inverse). |
+| `theme` | `LogoTheme` | `color` | Figma `Theme`. `color` on light or dark app surfaces (brand gradients); `mono` one-colour (Text/Primary); `inverse` on brand-filled surfaces (Text/Inverse). |
 | `title` | `string` |  | Accessible name. Defaults to "Startline". Pass `""` when the mark sits next to the wordmark. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
@@ -149,8 +149,8 @@ Source: `src/components/avatar/Avatar.tsx`
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `initials` | `string` |  | Up to 2 letters shown in the circle (Figma `Initials`). |
-| `type` | `"initials" \| "icon"` | `"initials" when `initials` is set, otherwise "icon"` | Figma `Type`. `initials` shows the letters; `icon` shows a generic person icon. |
-| `size` | `"md" \| "lg" \| "sm"` | `"md"` | Figma `Size`: sm 32 px, md 40 px, lg 48 px. |
+| `type` | `"initials" \| "icon"` | `initials" when `initials` is set, otherwise "icon` | Figma `Type`. `initials` shows the letters; `icon` shows a generic person icon. |
+| `size` | `"md" \| "lg" \| "sm"` | `md` | Figma `Size`: sm 32 px, md 40 px, lg 48 px. |
 | `name` | `string` |  | The person's full name, read by screen readers. Omit only when the name is shown next to the avatar. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
@@ -174,9 +174,9 @@ Source: `src/components/search-field/SearchField.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `size` | `"md" \| "lg"` | `"md"` | Figma `Size`: md 44 px, lg 52 px. |
+| `size` | `"md" \| "lg"` | `md` | Figma `Size`: md 44 px, lg 52 px. |
 | `onClear` | `(() => void)` |  | Called by the clear button. The button (Figma `Show clear`) appears when this is set and the field has a value. |
-| `clearLabel` | `string` | `"Clear search"` | Accessible name of the clear button. |
+| `clearLabel` | `string` | `Clear search` | Accessible name of the clear button. |
 | `fieldClassName` | `string` |  | Classes for the outer field (the input itself gets `className`). |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
@@ -249,7 +249,7 @@ Source: `src/components/choice-card/ChoiceCard.tsx`
 |---|---|---|---|
 | `label` * | `string` |  | Main text (Figma `Label`). |
 | `helper` | `string` |  | Supporting text under the label (Figma `Helper` + `Show helper`). |
-| `selection` | `"multiple" \| "single"` | `"single"` | Figma `Selection`. `single` = pick one (radio — give all cards in a group the same `name`); `multiple` = pick several (checkbox). |
+| `selection` | `"multiple" \| "single"` | `single` | Figma `Selection`. `single` = pick one (radio — give all cards in a group the same `name`); `multiple` = pick several (checkbox). |
 | `onCheckedChange` | `((checked: boolean) => void)` |  | Called with the new checked state (Figma `State=Selected`). |
 | `onChange` | `ChangeEventHandler<HTMLInputElement, Element>` |  |  |
 
@@ -275,8 +275,8 @@ Source: `src/components/badge/Badge.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `status` | `"neutral" \| "info" \| "success" \| "warning" \| "error"` | `"neutral"` | Figma `Status`. |
-| `size` | `"md" \| "sm"` | `"sm"` | Figma `Size`: sm 24 px, md 32 px. |
+| `status` | `"neutral" \| "info" \| "success" \| "warning" \| "error"` | `neutral` | Figma `Status`. |
+| `size` | `"md" \| "sm"` | `sm` | Figma `Size`: sm 24 px, md 32 px. |
 | `dot` | `boolean` | `true` | Figma `Show dot`. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
@@ -300,7 +300,7 @@ Source: `src/components/chip/Chip.tsx`
 |---|---|---|---|
 | `selected` | `boolean` |  | Figma `State=Selected` — the filter is on. Announced as "pressed". |
 | `onSelectedChange` | `((selected: boolean) => void)` |  | Called with the new selected state when the chip is clicked. |
-| `size` | `"md" \| "sm"` | `"sm"` | Figma `Size`: sm 36 px (44 px touch area), md 44 px. |
+| `size` | `"md" \| "sm"` | `sm` | Figma `Size`: sm 36 px (44 px touch area), md 44 px. |
 | `leadingIcon` | `ReactNode` |  | Figma `Show leading icon` — usually `<Icon name="check" />` on selected chips. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
@@ -322,8 +322,8 @@ Source: `src/components/source-indicator/SourceIndicator.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `kind` | `"official" \| "verified" \| "updated" \| "ai-summary"` | `"official"` | Figma `Kind` — where the information comes from: `official` (government or the service itself), `verified` (checked by Startline), `updated` (last-updated date), `ai-summary` (written by AI — always show this on AI text). |
-| `size` | `"md" \| "sm"` | `"sm"` | Figma `Size`: sm 24 px, md 32 px. |
+| `kind` | `"official" \| "verified" \| "updated" \| "ai-summary"` | `official` | Figma `Kind` — where the information comes from: `official` (government or the service itself), `verified` (checked by Startline), `updated` (last-updated date), `ai-summary` (written by AI — always show this on AI text). |
+| `size` | `"md" \| "sm"` | `sm` | Figma `Size`: sm 24 px, md 32 px. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
 
@@ -345,7 +345,7 @@ Source: `src/components/task-card/TaskCard.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `state` | `"next" \| "upcoming" \| "complete"` | `"next"` | Figma `State`: `next` = do now (highlighted), `upcoming` = later, `complete` = done. |
+| `state` | `"next" \| "upcoming" \| "complete"` | `next` | Figma `State`: `next` = do now (highlighted), `upcoming` = later, `complete` = done. |
 | `title` * | `string` |  | Figma `Title`. |
 | `description` | `string` |  | Figma `Description` (+ `Show description`). |
 | `meta` | `string` |  | Figma `Meta` (+ `Show meta`), e.g. "Recommended today". Shown with a calendar icon. |
@@ -353,7 +353,7 @@ Source: `src/components/task-card/TaskCard.tsx`
 | `actionHref` | `string` |  | Makes the action a link. |
 | `onAction` | `(() => void)` |  | Makes the action a button. |
 | `statusLabel` | `string` |  | Status tag text. Defaults to English "Next step" / "Upcoming" / "Complete" — pass translations. |
-| `titleAs` | `"h2" \| "h3" \| "h4"` | `"h3"` | Heading level of the title, to fit the page outline. |
+| `titleAs` | `"h2" \| "h3" \| "h4"` | `h3` | Heading level of the title, to fit the page outline. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
 
@@ -378,12 +378,12 @@ Source: `src/components/resource-list-item/ResourceListItem.tsx`
 | `provider` * | `string` |  | Figma `Provider`, e.g. "Government resource". |
 | `title` * | `string` |  | Figma `Title`. |
 | `description` | `string` |  | Figma `Description`. |
-| `kind` | `"resource" \| "service"` | `"resource"` | Figma `Kind`: `resource` (official information) or `service` (verified service provider). |
-| `emphasis` | `"recommended" \| "default"` | `"default"` | Figma `Emphasis`: `recommended` highlights the best match (max one per list). |
+| `kind` | `"resource" \| "service"` | `resource` | Figma `Kind`: `resource` (official information) or `service` (verified service provider). |
+| `emphasis` | `"recommended" \| "default"` | `default` | Figma `Emphasis`: `recommended` highlights the best match (max one per list). |
 | `sourceLabel` | `string` |  | Source tag text. Defaults to English "Official source" / "Verified service" — pass translations. |
-| `recommendedLabel` | `string` | `"Recommended for you"` | Text of the recommended tag. |
+| `recommendedLabel` | `string` | `Recommended for you` | Text of the recommended tag. |
 | `href` | `string` |  | Makes the whole item a link. |
-| `titleAs` | `"h2" \| "h3" \| "h4"` | `"h3"` | Heading level of the title. |
+| `titleAs` | `"h2" \| "h3" \| "h4"` | `h3` | Heading level of the title. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
 
@@ -406,9 +406,9 @@ Source: `src/components/guidance-card/GuidanceCard.tsx`
 |---|---|---|---|
 | `title` * | `string` |  | Figma `Title`. |
 | `body` | `string` |  | Figma `Body` (+ `Show body`). |
-| `layout` | `"row" \| "card" \| "tile"` | `"card"` | Figma `Layout`: `card` standalone; `row` inside a grouped list (no box); `tile` compact, for a two-column grid of categories. |
-| `tone` | `"neutral" \| "info"` | `"neutral"` | Figma `Tone`: `info` tints helpful tips. |
-| `titleAs` | `"h2" \| "h3" \| "h4"` | `"h3"` | Heading level of the title. |
+| `layout` | `"row" \| "card" \| "tile"` | `card` | Figma `Layout`: `card` standalone; `row` inside a grouped list (no box); `tile` compact, for a two-column grid of categories. |
+| `tone` | `"neutral" \| "info"` | `neutral` | Figma `Tone`: `info` tints helpful tips. |
+| `titleAs` | `"h2" \| "h3" \| "h4"` | `h3` | Heading level of the title. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
 
@@ -454,7 +454,7 @@ Source: `src/components/back-button/BackButton.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `label` | `string` | `"Back"` | Accessible name, e.g. "Back" or "Back to Resources". Translate it. |
+| `label` | `string` | `Back` | Accessible name, e.g. "Back" or "Back to Resources". Translate it. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
 
@@ -478,8 +478,8 @@ Source: `src/components/bottom-navigation/BottomNavigation.tsx`
 |---|---|---|---|
 | `active` * | `Destination` |  | Figma `Active` — the current destination. |
 | `items` | `Partial<Record<Destination, { label?: string \| undefined; href?: string \| undefined; }>>` |  | Translated labels and/or real URLs per destination. Defaults: English labels, `/`, `/path`, `/ask`, `/resources`, `/profile`. |
-| `linkAs` | `ElementType<any, keyof IntrinsicElements>` | `"a"` | Link element to render (e.g. your router's `Link`). Receives `href`. |
-| `label` | `string` | `"Main"` | Accessible name of the navigation landmark. |
+| `linkAs` | `ElementType<any, keyof IntrinsicElements>` | `a` | Link element to render (e.g. your router's `Link`). Receives `href`. |
+| `label` | `string` | `Main` | Accessible name of the navigation landmark. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
 
@@ -500,7 +500,7 @@ Source: `src/components/ask-startline-action/AskStartlineAction.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `format` | `"compact" \| "contextual"` | `"compact"` | Figma `Format`: `compact` = filled pill inside cards; `contextual` = quiet text action under content. |
+| `format` | `"compact" \| "contextual"` | `compact` | Figma `Format`: `compact` = filled pill inside cards; `contextual` = quiet text action under content. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
 
@@ -523,8 +523,8 @@ Source: `src/components/ai-assistant-panel/AIAssistantPanel.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `state` | `"entry" \| "answer" \| "escalation"` | `"entry"` | Figma `State`: - `entry` — invite a question (highlighted): heading, intro, suggested questions, Ask action. - `answer` — AI answer: the question, an "AI summary" SourceIndicator, the answer, sources, actions. - `escalation` — hand-off to a human when a decision depends on the person's situation. |
-| `title` | `string` | `"Ask Startline"` | Header title. |
+| `state` | `"entry" \| "answer" \| "escalation"` | `entry` | Figma `State`: - `entry` — invite a question (highlighted): heading, intro, suggested questions, Ask action. - `answer` — AI answer: the question, an "AI summary" SourceIndicator, the answer, sources, actions. - `escalation` — hand-off to a human when a decision depends on the person's situation. |
+| `title` | `string` | `Ask Startline` | Header title. |
 | `subtitle` | `string` |  | Header subtitle, e.g. "AI navigation assistant", "Answer with sources", "When confirmation matters". |
 | `footnote` | `string` |  | Small print at the bottom, e.g. "The linked source remains authoritative." |
 | `children` | `ReactNode` |  | Panel content — compose it from Startline components (see stories). |
@@ -549,7 +549,7 @@ Source: `src/components/ai-assistant-panel/AIAssistantPanel.tsx`
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `label` | `string` | `"You asked"` | Small label above the question. Translate it. |
+| `label` | `string` | `You asked` | Small label above the question. Translate it. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
 
