@@ -13,8 +13,9 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = resolve(root, "dist");
 
 /** Font package → subsets to ship. Latin always comes from Plus Jakarta Sans (the brand font). */
-export const FONTS: { pkg: string; subsets: string[] }[] = [
-  { pkg: "plus-jakarta-sans", subsets: ["latin", "latin-ext", "vietnamese"] },
+export const FONTS: { pkg: string; subsets: string[]; weights?: number[] }[] = [
+  // 500 = logo wordmark only.
+  { pkg: "plus-jakarta-sans", subsets: ["latin", "latin-ext", "vietnamese"], weights: [400, 500, 600, 700] },
   { pkg: "noto-sans-arabic", subsets: ["arabic"] },
   { pkg: "noto-sans-ethiopic", subsets: ["ethiopic"] },
   { pkg: "noto-sans-devanagari", subsets: ["devanagari"] },
@@ -25,9 +26,9 @@ export const WEIGHTS = [400, 600, 700];
 
 mkdirSync(resolve(dist, "fonts"), { recursive: true });
 let css = "/* Bundled fonts (SIL OFL 1.1): Plus Jakarta Sans + Noto Sans script families. */\n";
-for (const { pkg, subsets } of FONTS) {
+for (const { pkg, subsets, weights = WEIGHTS } of FONTS) {
   const base = resolve(root, "node_modules/@fontsource", pkg);
-  for (const w of WEIGHTS) {
+  for (const w of weights) {
     // Fontsource's <weight>.css lists one @font-face per subset with its unicode-range.
     const src = readFileSync(resolve(base, `${w}.css`), "utf8");
     for (const block of src.split("@font-face").slice(1)) {

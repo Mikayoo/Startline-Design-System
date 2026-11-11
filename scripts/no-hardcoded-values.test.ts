@@ -28,7 +28,8 @@ const RULES: [string, RegExp][] = [
 
 describe("components use tokens only", () => {
   it.each(files)("%s", (file) => {
-    const src = readFileSync(file, "utf8");
+    // Ignore comments (JSDoc often mentions "right-to-left", colours, etc.).
+    const src = readFileSync(file, "utf8").replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
     const problems = RULES.flatMap(([name, re]) => (re.test(src) ? [`${name}: ${src.match(re)![0]}`] : []));
     expect(problems).toEqual([]);
   });

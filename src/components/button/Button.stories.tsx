@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ChevronRight, Search } from "lucide-react";
+import { Icon } from "../icon";
 import { Button } from "./Button";
 
 const FIGMA = "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=94-2027";
@@ -27,7 +27,7 @@ export const Tertiary: Story = { args: { variant: "tertiary" } };
 export const Destructive: Story = { args: { variant: "destructive", children: "Delete" } };
 export const Disabled: Story = { args: { disabled: true } };
 export const WithIcons: Story = {
-  args: { leadingIcon: <Search />, trailingIcon: <ChevronRight /> },
+  args: { leadingIcon: <Icon name="search" />, trailingIcon: <Icon name="chevron-right" /> },
 };
 export const AsLink: Story = {
   args: { asChild: true, children: <a href="#next">Go to next step</a> },
@@ -59,7 +59,7 @@ export const AllVariants: Story = {
             <Button variant={variant} size={size} disabled>
               Continue
             </Button>
-            <Button variant={variant} size={size} leadingIcon={<Search />} trailingIcon={<ChevronRight />}>
+            <Button variant={variant} size={size} leadingIcon={<Icon name="search" />} trailingIcon={<Icon name="chevron-right" />}>
               Continue
             </Button>
           </div>
@@ -80,7 +80,7 @@ export const FigmaComparison: Story = {
           <div key={`${variant}-${size}`} className="flex items-center gap-8">
             <Button variant={variant} size={size}>Continue</Button>
             <Button variant={variant} size={size} disabled>Continue</Button>
-            <Button variant={variant} size={size} leadingIcon={<Search />} trailingIcon={<ChevronRight />}>
+            <Button variant={variant} size={size} leadingIcon={<Icon name="search" />} trailingIcon={<Icon name="chevron-right" />}>
               Continue
             </Button>
           </div>
@@ -103,7 +103,7 @@ export const Multilingual: Story = {
     <div className="flex flex-wrap gap-4 bg-surface-primary p-8">
       {CONTINUE.map(([lang, label]) => (
         <div key={lang} lang={lang} dir={["ar", "fa", "ur"].includes(lang) ? "rtl" : "ltr"}>
-          <Button size="lg" trailingIcon={<ChevronRight className="rtl:-scale-x-100" />}>
+          <Button size="lg" trailingIcon={<Icon name="chevron-right" />}>
             {label}
           </Button>
         </div>
