@@ -101,4 +101,6 @@
   /* Elevation (Figma effect styles) */
   --shadow-raised: 0 4px 16px 0 var(--startline-elevation-shadow);
   --shadow-splash: 1px 2px 18px 1px var(--startline-elevation-shadow);
+  --shadow-100: 0 1px 3px 0 rgb(12 31 30 / 0.07);
+  --shadow-200: 0 2px 6px 0 rgb(12 31 30 / 0.06), 0 6px 16px 0 rgb(12 31 30 / 0.08);
 }

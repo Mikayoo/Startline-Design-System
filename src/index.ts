@@ -12,3 +12,7 @@ export * from "./components/choice-card";
 export * from "./components/badge";
 export * from "./components/chip";
 export * from "./components/source-indicator";
+export * from "./components/task-card";
+export * from "./components/resource-list-item";
+export * from "./components/guidance-card";
+export * from "./components/settings-row";

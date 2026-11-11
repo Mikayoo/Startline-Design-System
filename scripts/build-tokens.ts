@@ -39,7 +39,7 @@ interface TextStyle {
 interface EffectStyle {
   name: string;
   description: string;
-  effects: { type: string; x: number; y: number; blur: number; spread: number; colorVar: string | null }[];
+  effects: { type: string; x: number; y: number; blur: number; spread: number; colorVar: string | null; color?: string }[];
 }
 interface Snapshot {
   collections: Record<string, Collection>;
@@ -196,7 +196,7 @@ ${snap.effectStyles
   .map(
     (s) =>
       `  --shadow-${textKey(s.name).replace(/^elevation-/, "")}: ${s.effects
-        .map((e) => `${px(e.x)} ${px(e.y)} ${px(e.blur)} ${px(e.spread)} ${varOf(e.colorVar) ?? "rgb(0 0 0 / 0.12)"}`)
+        .map((e) => `${px(e.x)} ${px(e.y)} ${px(e.blur)} ${px(e.spread)} ${varOf(e.colorVar) ?? e.color ?? "rgb(0 0 0 / 0.12)"}`)
         .join(", ")};`,
   )
   .join("\n")}

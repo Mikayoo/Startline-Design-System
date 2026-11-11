@@ -106,3 +106,5 @@ Themes: `light` (default), `dark`, `ic-light`, `ic-dark` (high contrast) via `da
 |---|---|
 | Startline / Elevation / Raised | `shadow-raised` |
 | Startline / Elevation / Splash | `shadow-splash` |
+| Startline / Elevation / 100 | `shadow-100` |
+| Startline / Elevation / 200 | `shadow-200` |
