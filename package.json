@@ -1,7 +1,7 @@
 {
   "name": "@startline/ui",
   "version": "0.1.0",
-  "description": "Startline design system — React components, tokens and themes generated from the Startline Figma library.",
+  "description": "Startline design system \u2014 React components, tokens and themes generated from the Startline Figma library.",
   "license": "MIT",
   "type": "module",
   "sideEffects": [
@@ -29,7 +29,7 @@
   "scripts": {
     "dev": "storybook dev -p 6006",
     "tokens": "tsx scripts/build-tokens.ts",
-    "build": "npm run tokens && vite build && tsx scripts/postbuild.ts",
+    "build": "npm run tokens && npm run docs && vite build && tsx scripts/postbuild.ts",
     "build-storybook": "storybook build",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
@@ -37,7 +37,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "check": "npm run typecheck && npm run lint && npm test",
-    "connect:parse": "figma connect parse"
+    "connect:parse": "figma connect parse",
+    "docs": "tsx scripts/build-component-docs.ts"
   },
   "peerDependencies": {
     "react": ">=18.2",

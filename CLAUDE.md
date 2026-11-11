@@ -46,17 +46,20 @@ With no attribute the theme follows the device. To force one, set `data-theme` o
    - Colour: `bg-surface-primary`, `text-text-primary`, `border-border-default`, `bg-action-primary`…
      (names = Figma variable path, lower-kebab). shadcn names (`bg-primary`, `text-muted-foreground`)
      also work and map to Startline tokens.
-   - Spacing `Spacing/N` → `p-N`, `gap-N` (4 px grid: 1=4, 2=8, 3=12, 4=16, 5=20, 6=24, 8=32).
-   - Radius `Radius/SM|MD|LG|XL|Pill` → `rounded-sm|md|lg|xl|full`.
+   - Spacing `Spacing/N` → `p-N`, `gap-N` (4 px grid: 1=4, 2=8, 3=12, 4=16, 5=20, 6=24, 8=32; half-steps
+     0.5, 1.5, 2.5, 4.5 exist as Figma `Spacing/0-5` etc.).
+   - Radius `Radius/SM|MD|LG|XL|2XL|Pill` → `rounded-sm|md|lg|xl|2xl|full`.
    - Text styles → `text-screen-heading`, `text-card-title`, `text-body`, `text-button`,
      `text-label`, `text-caption`, `text-navigation`.
    - Control heights `Control/SM|MD|LG` → `h-control-sm|md|lg` (36/44/52 px).
+   - Shadows `shadow-100`, `shadow-200`, `shadow-raised` (Figma elevation styles).
 3. **Pick colours by meaning, not by look.** `Text/Error` for error text, `Action/Primary` for the
    main action. Token descriptions in `docs/tokens.md` say what each is for.
 4. **One primary Button per screen.** Secondary for alternatives, tertiary for low emphasis.
 5. **Touch targets ≥ 44 px.** Icons are 24 px; wrap interactive icons to 44 px.
 6. **Colour never carries meaning alone** — pair status colours with a label or icon.
-7. **Do not edit generated files by hand:** `src/styles/tokens.css`, `docs/tokens.md`,
+7. **Brand artwork is the only fixed-colour code** (`src/brand/`). Do not copy its colours elsewhere.
+   **Do not edit generated files by hand:** `src/styles/tokens.css`, `docs/tokens.md`,
    `docs/components.md`. Change Figma (or `tokens/figma-variables.json`) and run `npm run tokens`.
 8. **RTL-safe layout.** Arabic, Persian and Urdu are right-to-left. Use start/end utilities (`ps-`, `pe-`,
    `ms-`, `me-`, `start-`, `end-`, `text-start`, `rounded-s`, `border-e`), never left/right. Flip directional
@@ -84,29 +87,40 @@ Figma component properties become React props, so Figma and code read the same:
 
 ## Components
 
-Status: ⏳ planned · 🚧 in progress · ✅ done (stories + Code Connect + tests)
+All 19 Figma components are built (✅ stories + Code Connect + tests, checked against Figma in light and
+dark). Full props, types and defaults: **[docs/components.md](docs/components.md)** (generated — read it).
 
-| Component | Use when | Status |
+| Component | Use when | Key props |
 |---|---|---|
-| Button | Actions. One primary per screen | ✅ |
-| Icon | The 12 Startline icons; Lucide for anything else | ⏳ |
-| Logo / AppIcon | Brand mark and lockup | ⏳ |
-| Avatar | A person, by initials or icon | ⏳ |
-| SearchField | Searching a list or resources | ⏳ |
-| TextField | Single-line text input with persistent label | ⏳ |
-| Switch | Instant on/off setting | ⏳ |
-| ChoiceCard | Choosing one or several options with explanation | ⏳ |
-| Badge | Showing a status | ⏳ |
-| Chip | Filtering content | ⏳ |
-| SourceIndicator | Showing where information comes from (official, verified, AI summary) | ⏳ |
-| TaskCard | A next step the user should take | ⏳ |
-| ResourceListItem | Comparing services/resources in a list | ⏳ |
-| GuidanceCard | Supporting information with no task action | ⏳ |
-| SettingsRow | A row in a settings list | ⏳ |
-| BackButton | Leaving a detail screen | ⏳ |
-| BottomNavigation | Switching between the 5 primary destinations | ⏳ |
-| AskStartlineAction | Opening the AI assistant from context | ⏳ |
-| AIAssistantPanel | AI answer with sources and human escalation | ⏳ |
+| `Button` | An action. One `primary` per screen | `variant` primary·secondary·tertiary·destructive, `size` md·lg, `leadingIcon`, `trailingIcon`, `asChild` |
+| `Icon` | One of the 12 Startline icons (otherwise `lucide-react` with `strokeWidth={1.8}`) | `name`, `label` (only if meaningful alone) |
+| `LogoMark`, `LogoLockup`, `AppIcon` | Brand | `theme` color·mono·inverse, `layout` horizontal·stacked |
+| `Avatar` | A person | `initials`, `type` initials·icon, `size` sm·md·lg, `name` |
+| `SearchField` | Searching a list | `size`, `onClear`, plus input props; needs `aria-label` |
+| `TextField` | Form input | `label` *, `helper`, `error`, plus input props |
+| `Switch` | Instant on/off setting | `checked`, `onCheckedChange`, `disabled`; needs a label |
+| `ChoiceCard` | Questionnaire answers | `label` *, `helper`, `selection` single·multiple, `name`, `value` |
+| `Badge` | Read-only status | `status` neutral·info·success·warning·error, `size`, `dot` |
+| `Chip` | Filter toggle | `selected`, `onSelectedChange`, `size` sm·md, `leadingIcon` |
+| `SourceIndicator` | Where info comes from — **always on AI text** | `kind` official·verified·updated·ai-summary, `size` |
+| `TaskCard` | A next step to do | `state` next·upcoming·complete, `title` *, `description`, `meta`, `actionLabel`, `actionHref`/`onAction` |
+| `ResourceListItem` | Comparing services in a list | `provider` *, `title` *, `description`, `kind` resource·service, `emphasis`, `href` |
+| `GuidanceCard` | Information with no action | `title` *, `body`, `layout` card·row·tile, `tone` neutral·info |
+| `SettingsRow` | A row in settings | `label` *, `value`, `href`/`onClick`, `disabled` |
+| `BackButton` | Leaving a detail screen | `label`, `onClick` |
+| `BottomNavigation` | The 5 top-level destinations | `active` *, `items` (labels/hrefs), `linkAs` (router Link) |
+| `AskStartlineAction` | Open the AI assistant from context | `format` compact·contextual, children |
+| `AIAssistantPanel` (+ `AIAssistantQuestion`, `AIAssistantSuggestions`) | An AI step | `state` entry·answer·escalation, `subtitle`, `footnote`, children |
+
+### Composition rules
+- **Screens:** page background is `bg-surface-warm`; cards sit on it. Top-level screens end with
+  `BottomNavigation`; detail screens start with `BackButton` and a `text-screen-heading` title.
+- **AI content:** every AI answer shows `<SourceIndicator kind="ai-summary">`, the sources used, and a way
+  to reach a human. Use `AIAssistantPanel state="escalation"` for legal, immigration or eligibility decisions.
+- **Lists:** wrap `ResourceListItem`, `SettingsRow` in `<ul><li>`; `ChoiceCard` groups in `<fieldset><legend>`.
+- **Text:** every user-visible string is a prop — pass translated text; English defaults exist only as fallbacks.
+- **Don't use** the deprecated Figma components `Primary Button`, `Secondary Button`, `Notification`;
+  device mock-ups (Status bar, Dynamic Island) are not in code.
 
 ## Adding or changing a component
 
@@ -120,7 +134,7 @@ Button.test.tsx     render, states, keyboard, axe accessibility
 index.ts            exports
 ```
 
-Then export it from `src/index.ts`, update the table above and run the checks.
+Then export it from `src/index.ts`, update the table above, run `npm run docs` and the checks.
 `scripts/no-hardcoded-values.test.ts` fails the build if a component contains a raw colour or an
 arbitrary Tailwind value (`p-[13px]`). Stories and tests may use layout-only arbitrary values.
 
@@ -133,6 +147,7 @@ property; `State` Hover/Pressed are dropped, `State=Disabled` → `disabled`. Va
 ```bash
 npm run dev            # Storybook on http://localhost:6006
 npm run tokens         # regenerate tokens.css + docs/tokens.md from tokens/figma-variables.json
+npm run docs           # regenerate docs/components.md from component source
 npm run typecheck
 npm run lint
 npm test

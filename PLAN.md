@@ -228,3 +228,30 @@ All edits are in place: no component was recreated, so existing screen instances
   Noto Sans Arabic/Ethiopic/Devanagari/Bengali/Gurmukhi per-script (unicode-range, ~85–280 KB each, only
   downloaded when used); CJK via device fonts; Vietnamese subset restored. All components RTL-ready
   (logical utilities enforced by test; Storybook Direction + Language toolbar; Button Multilingual story).
+- 2026-11-10 All 19 components built, each with stories, tests (121 total, incl. axe accessibility),
+  Code Connect (21 `.figma.ts` templates) and light/dark visual QA in `docs/qa/`.
+  Generated `docs/components.md`; CLAUDE.md finalised; AGENTS.md, README, CHANGELOG, LICENSE added.
+
+### Figma fixes made during the build
+- Button Destructive variants: label re-linked to the `Label` property.
+- Icon artwork frames set to scale, so resized icons (20 px in buttons) scale correctly.
+- 24 text layers used styles borrowed from another library (`Label/M`, `Label/L`) → identical local styles.
+- Choice card: border `Neutral/100` (primitive) → `Border/Subtle`; new `Border/Medium` = 1.5 px token.
+- `Neutral/Mist` (primitive) fills → `Background/Subtle` in Badge, Source indicator, Task card, AI panel,
+  so they darken in dark mode.
+- Borrowed effect styles `Elevation/100`, `/200` → local `Startline / Elevation / 100`, `/200`.
+
+### Open items for the designer (not changed — your call)
+1. **Logo Mark component:** `Theme=Color` variant is empty; `Theme=Inverse` is white-on-white;
+   `Logo Lockup` Horizontal+Mono has no wordmark. Code uses the complete mark from the lockup.
+2. **Publish a library update** in Figma so instances everywhere pick up the `Style→Variant` rename and
+   new Button properties (e.g. Buttons inside AI Assistant Panel still show `Style`).
+3. **Dark mode:** `Status/Info Subtle` and `Background/Brand Subtle` are the same colour, so info tags on
+   highlighted cards lose their pill shape. Consider a different dark value for one of them.
+4. **Back button Pressed shadow** is Figma's default (0/4/4, black 25 %) — likely accidental; not in code.
+5. **Consistency:** Text field focus = `Action/Primary`, Search field focus = `Border/Brand`; Text field
+   radius 8 vs Search field 12. Code follows Figma; align if unintended.
+6. **Touch targets:** Chip SM (36 px) and Switch (26 px) are below 44 px; code adds invisible hit areas.
+7. **Shadows** `Elevation/100`, `/200` use a fixed ink colour (no dark value); `Splash` now uses
+   `Elevation/Shadow` — check it still looks as intended.
+8. Old `Primary Button` (194 uses) / `Secondary Button` (24 uses) remain deprecated in screens.
