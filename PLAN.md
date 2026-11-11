@@ -292,3 +292,18 @@ compared with Figma in light, dark and Arabic RTL (`docs/qa/home/comparison.png`
     to the new tokens when converting to components.
 11. Reminder card shadow (raw 0/10/24, 25 %) mapped to `Elevation/Floating` in code.
 12. Pill button vs Button: two button families exist; decide whether Button should adopt the pill shape.
+
+## Startline screens updated to the design system (2026-11-10)
+Scope: App v3.1, Onboarding v3, Startline Screens (older). Depth: patterns + tokens (no legacy swaps).
+- New Figma pattern components (Patterns page): Screen header, Search bar, Hero card, Quick action,
+  Section header, Recommendation card, Reminder card, Event card, Card header (+ optional Detail line).
+- Swapped exact-match one-off frames for instances: App v3.1 — 1 screen header, 1 search bar, 1 hero,
+  3 quick actions, 5 section headers, 5 recommendations, 3 reminders, 5 events, 109 card headers;
+  Onboarding v3 — 1 section header. Bespoke heroes/reminders with other shapes left as they are.
+- New text styles: Display (30/36 Bold, −1.5 %) and Eyebrow (12/16 SemiBold, 4 %); Font Size/3XL, Line Height/Display.
+- Linked on screens: App v3.1 — 89 fills, 19 strokes, 129 texts, 2,295 spacing, 286 radii;
+  Onboarding v3 — 63 fills, 8 strokes, 71 texts, 474 spacing, 136 radii;
+  Startline Screens — 44 strokes, 6 texts, 852 spacing, 320 radii. Screens: exact matches only (no snapping).
+- Left for review: ~25 one-off colours (e.g. #594d3d@0.4, #0a332e, #b9e6e2, #000000), Bold 34/40 splash titles, a few mixed-style texts.
+- NOT YET DONE: after-screenshots/visual check of updated screens (before shots in docs/qa/screens/before);
+  code side (CardHeader pattern, text-display / text-eyebrow tokens in the snapshot).
