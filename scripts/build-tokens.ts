@@ -116,7 +116,10 @@ const tokensCss = `${banner}
 :root {
 ${decls(sortByName(prim.variables), "Value")}
 ${single.map((c) => decls(sortByName(c.variables), "Value")).join("\n")}
-  --startline-font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  /* Brand font first; each script falls back to a matching Noto (bundled) or the device's CJK font. */
+  --startline-font-family: "Plus Jakarta Sans", "Noto Sans Arabic", "Noto Sans Ethiopic", "Noto Sans Devanagari",
+    "Noto Sans Bengali", "Noto Sans Gurmukhi", "PingFang SC", "Hiragino Sans", "Apple SD Gothic Neo",
+    "Microsoft YaHei", "Yu Gothic UI", "Malgun Gothic", "Noto Sans CJK SC", system-ui, sans-serif;
 }
 
 /* Semantic colours. Default = Light; follows the device when no data-theme is set. */

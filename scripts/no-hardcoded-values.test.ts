@@ -1,6 +1,7 @@
 /**
  * Guard: component source may only use Startline tokens.
  * Fails on raw colours (#hex, rgb(), hsl()) and arbitrary Tailwind values (p-[13px], text-[#fff]).
+ * Also fails on physical left/right utilities, which break right-to-left languages.
  * Stories and tests are exempt (layout scaffolding only).
  */
 import { readdirSync, readFileSync, statSync } from "node:fs";
@@ -21,6 +22,8 @@ const RULES: [string, RegExp][] = [
   ["raw hex colour", /#[0-9a-fA-F]{3,8}\b/],
   ["raw rgb/hsl colour", /\b(rgb|rgba|hsl|hsla)\(/],
   ["arbitrary Tailwind value", /\b[a-z-]+-\[[^\]]+\]/],
+  // RTL: use start/end (ps/pe, ms/me, start-/end-, text-start, rounded-s/e, border-s/e) not left/right.
+  ["physical left/right utility (not RTL-safe)", /(?<![\w-])(pl|pr|ml|mr|left|right|rounded-(?:l|r|tl|tr|bl|br)|border-(?:l|r)|scroll-(?:ml|mr|pl|pr))-[\w.[]|(?<![\w-])text-(?:left|right)\b/],
 ];
 
 describe("components use tokens only", () => {

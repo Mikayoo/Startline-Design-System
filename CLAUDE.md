@@ -18,6 +18,12 @@ import { Button } from "@startline/ui";
 <Button variant="primary" size="lg">Continue</Button>
 ```
 
+### Languages and fonts
+Plus Jakarta Sans (brand) covers Latin languages and Vietnamese. Other scripts fall back automatically:
+bundled Noto Sans Arabic (Arabic, Persian, Urdu), Ethiopic (Amharic, Tigrinya), Devanagari (Hindi),
+Bengali, Gurmukhi (Punjabi) — each downloads only when that script is on screen. Chinese, Japanese and
+Korean use the device's system fonts (too large to bundle); `lang` picks the regional forms.
+
 ### Themes
 Four themes come from the Figma `Startline / Colour` modes:
 
@@ -52,7 +58,12 @@ With no attribute the theme follows the device. To force one, set `data-theme` o
 6. **Colour never carries meaning alone** — pair status colours with a label or icon.
 7. **Do not edit generated files by hand:** `src/styles/tokens.css`, `docs/tokens.md`,
    `docs/components.md`. Change Figma (or `tokens/figma-variables.json`) and run `npm run tokens`.
-8. **Never publish or push.** `git push`, `npx figma connect publish` and `npm publish` are done by
+8. **RTL-safe layout.** Arabic, Persian and Urdu are right-to-left. Use start/end utilities (`ps-`, `pe-`,
+   `ms-`, `me-`, `start-`, `end-`, `text-start`, `rounded-s`, `border-e`), never left/right. Flip directional
+   icons (chevrons, arrows, back) with `rtl:-scale-x-100`. A test fails on left/right utilities.
+9. **Set `lang` (and `dir="rtl"` for ar/fa/ur) on user-language content** so the right font and glyph forms
+   are chosen. Never hard-code a font family.
+10. **Never publish or push.** `git push`, `npx figma connect publish` and `npm publish` are done by
    the human owner.
 
 ## Figma → code naming

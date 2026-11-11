@@ -77,7 +77,8 @@ The working folder `/Users/mikayoos/Startlne-Design-system` is empty (not a git 
 ## Interview answers
 | Topic | Decision |
 |---|---|
-| Font | Plus Jakarta Sans, **bundled** via `@fontsource/plus-jakarta-sans` (no Google request) |
+| Font | Plus Jakarta Sans, **bundled** (no Google request) + Noto Sans fallbacks for Arabic, Ethiopic, Devanagari, Bengali, Gurmukhi; CJK via device fonts |
+| Languages | Multilingual incl. **right-to-left** (Arabic, Persian, Urdu) — every component RTL-ready |
 | Default theme | **Follow device** (light/dark), with override via `data-theme` attribute |
 | High contrast | **All 4 modes** — IC modes auto-apply on `prefers-contrast: more`, or set manually |
 | Figma fixes | **Claude edits Figma** through the connector; you review the changes before I build |
@@ -223,3 +224,7 @@ All edits are in place: no component was recreated, so existing screen instances
 - 2026-11-10 Button built. Matches Figma in light and dark (measured: heights 44/52, padding 20/24,
   radius 12, font 600 14/20, colours exact; widths within 1 px from text rendering). Comparison in
   `docs/qa/button/comparison.png`. Fixed in Figma: Destructive variants' label was not linked to `Label`.
+- 2026-11-10 Button approved (Stop 2). Multilingual decision: Plus Jakarta Sans stays the brand font; bundled
+  Noto Sans Arabic/Ethiopic/Devanagari/Bengali/Gurmukhi per-script (unicode-range, ~85–280 KB each, only
+  downloaded when used); CJK via device fonts; Vietnamese subset restored. All components RTL-ready
+  (logical utilities enforced by test; Storybook Direction + Language toolbar; Button Multilingual story).

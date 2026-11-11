@@ -17,3 +17,12 @@
     color: var(--startline-text-primary);
   }
 }
+
+/* CJK: pick the regional glyph forms that match the content language (device fonts, not bundled). */
+@layer base {
+  :lang(ja) { font-family: "Plus Jakarta Sans", "Hiragino Sans", "Yu Gothic UI", "Noto Sans CJK JP", system-ui, sans-serif; }
+  :lang(ko) { font-family: "Plus Jakarta Sans", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans CJK KR", system-ui, sans-serif; }
+  :lang(zh-Hant), :lang(zh-TW), :lang(zh-HK) {
+    font-family: "Plus Jakarta Sans", "PingFang TC", "Microsoft JhengHei", "Noto Sans CJK TC", system-ui, sans-serif;
+  }
+}

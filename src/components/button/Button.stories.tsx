@@ -89,3 +89,25 @@ export const FigmaComparison: Story = {
     </div>
   ),
 };
+
+const CONTINUE: [lang: string, label: string][] = [
+  ["en", "Continue"], ["vi", "Tiếp tục"], ["ar", "متابعة"], ["fa", "ادامه"], ["ur", "جاری رکھیں"],
+  ["zh-Hans", "继续"], ["zh-Hant", "繼續"], ["ja", "続ける"], ["ko", "계속"],
+  ["am", "ቀጥል"], ["ti", "ቀጽል"], ["hi", "जारी रखें"], ["bn", "চালিয়ে যান"], ["pa", "ਜਾਰੀ ਰੱਖੋ"],
+];
+
+/** Every supported script, each in its own `lang` (and `dir` for RTL) so the right font is chosen. */
+export const Multilingual: Story = {
+  parameters: { layout: "padded" },
+  render: () => (
+    <div className="flex flex-wrap gap-4 bg-surface-primary p-8">
+      {CONTINUE.map(([lang, label]) => (
+        <div key={lang} lang={lang} dir={["ar", "fa", "ur"].includes(lang) ? "rtl" : "ltr"}>
+          <Button size="lg" trailingIcon={<ChevronRight className="rtl:-scale-x-100" />}>
+            {label}
+          </Button>
+        </div>
+      ))}
+    </div>
+  ),
+};
