@@ -9,3 +9,6 @@ export * from "./components/search-field";
 export * from "./components/text-field";
 export * from "./components/switch";
 export * from "./components/choice-card";
+export * from "./components/badge";
+export * from "./components/chip";
+export * from "./components/source-indicator";
