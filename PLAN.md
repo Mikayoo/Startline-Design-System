@@ -173,3 +173,44 @@ Commit after each component.
 - Visual check: Storybook in the browser pane, each component in all 4 themes, compared with
   Figma screenshots of the same variants.
 - After you publish Code Connect: open Button in Figma Dev Mode and confirm the snippet shows `@startline/ui`.
+
+## Figma change log — Phase 0 (2026-11-10)
+
+All edits are in place: no component was recreated, so existing screen instances stay linked.
+
+### Tokens
+- **New colour tokens (all 4 modes, scoped, code syntax, described):** `Focus/Ring`, `Action/Danger`,
+  `Action/Danger Hover`, `Action/Danger Pressed`, `Text/On Danger`, `Overlay/Scrim`, `Elevation/Shadow`.
+- **New primitives:** `Red/700`, `Red/800`, `Teal/400`, `Adaptive/errorHover|errorPressed|errorInk`,
+  `Overlay/Ink 48`, `Overlay/Black 64`, `Shadow/Ink 12`, `Shadow/Black 40`.
+- `Action/Accent Bright` → renamed **`Accent/Teal Bright`**, aliased to `Teal/400`, scoped.
+- `Bright Color` → aliased + scoped, marked **DEPRECATED** (pending deletion).
+- Code syntax added to 28 primitives and `Text/On Media`. Descriptions on all 39 colour tokens.
+- **New layout tokens:** `Spacing/0-5` (2), `Spacing/1-5` (6), `Spacing/2-5` (10), `Spacing/4-5` (18),
+  `Radius/2XL` (28) — the half-steps your components already used; they match Tailwind's 0.5/1.5/2.5.
+- Descriptions on radius, control height and border tokens.
+
+### Styles
+- Text styles: one naming pattern (`Startline / …`); `Button` size and `Navigation` size/line height
+  bound to variables; descriptions added; `Body text` and `Card tag` marked DEPRECATED.
+- Effect styles: shadow colour bound to `Elevation/Shadow` (now changes in dark mode);
+  `splash` → `Startline / Elevation / Splash`.
+
+### Components
+- Button: `Style` → **`Variant`**; new **Destructive** variant (32 variants total); new
+  **Show leading icon / Leading icon / Show trailing icon / Trailing icon** properties.
+- Switch: `Value: Off|On` → **`Checked: False|True`**. Choice card: `Type` → **`Selection`**.
+- `Mobile Navigation / Premium` → **`Startline / Bottom Navigation`**.
+- Specific description on all 22 library components (+ mock-up chrome marked as not in code).
+- Bound to tokens: 52 spacing values, 13 radii; text styles applied to 58 text layers.
+- Auto layout: the "missing" frames were icon drawings — correct as they are; no change.
+- DEPRECATED (description only, nothing deleted): `Primary Button` (194 uses), `Secondary Button`
+  (24 uses), `Notification` (2 uses), `Sec Notification` (0), duplicate `AI Assistant Panel` on Patterns (0).
+
+### Left as intentional fine geometry (not tokenised)
+- Choice card checkbox radius 5 px (20 px box), Switch knob inset 3 px.
+
+### Awaiting your decision
+- Delete `Sec Notification`, duplicate AI panel, `Bright Color`, `Body text`, `Card tag` (all unused)?
+- Swap the 194 + 24 old button instances to `Startline / Button`? The old ones are 20 px radius with
+  104 px side padding, so screens would visibly change.
