@@ -310,3 +310,15 @@ Scope: App v3.1, Onboarding v3, Startline Screens (older). Depth: patterns + tok
   28/34 (the most common big-title size; smaller never causes new wrapping).
 - Code: `text-display`, `text-eyebrow` tokens (letter spacing now generated in em from Figma percent);
   `CardHeader` pattern; Code Connect files for all 9 pattern components (40 templates in total).
+
+## Design decisions (2026-11-11)
+- Logo Mark rebuilt in Figma: Color variant (was empty) now holds the gradient pathmark from the lockup;
+  Mono → Text/Primary; Inverse → Text/Inverse. Matches the code `LogoMark`.
+- Status/Info Subtle: Dark and IC-Dark now `Adaptive/raised`, so info tags keep their pill on brand-tinted cards.
+- Buttons: keep both families — PillButton for the main screen action, Button for compact in-card and
+  destructive actions (no change).
+- One-off colours on screens: linked only exact matches to static semantic tokens (4) plus clear near-matches
+  (#33d1c9 → Accent/Teal Bright, 48 % backdrop → Overlay/Scrim). Left as designed (no token fits): sand-brown
+  photo tints #594d3d @30–50 %, #0a332e, #0f7a6b @35 %, #333d3b, #d4c29e, #000000, #b9e6e2 text on photos,
+  #052925 @55 %, #8c540d (older screens).
+- Still the owner's step: publish the Figma library update (Assets → Publish).

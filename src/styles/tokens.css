@@ -212,7 +212,7 @@
     --startline-overlay-photo-top: var(--startline-overlay-deep-25);
     --startline-overlay-scrim: var(--startline-overlay-black-64);
     --startline-status-error-subtle: var(--startline-adaptive-raised);
-    --startline-status-info-subtle: var(--startline-adaptive-subtle);
+    --startline-status-info-subtle: var(--startline-adaptive-raised);
     --startline-status-success-subtle: var(--startline-adaptive-subtle);
     --startline-status-warning-subtle: var(--startline-adaptive-raised);
     --startline-surface-brand: var(--startline-adaptive-action);
@@ -330,7 +330,7 @@
     --startline-overlay-photo-top: var(--startline-overlay-deep-25);
     --startline-overlay-scrim: var(--startline-overlay-black-64);
     --startline-status-error-subtle: var(--startline-adaptive-raised);
-    --startline-status-info-subtle: var(--startline-adaptive-subtle);
+    --startline-status-info-subtle: var(--startline-adaptive-raised);
     --startline-status-success-subtle: var(--startline-adaptive-subtle);
     --startline-status-warning-subtle: var(--startline-adaptive-raised);
     --startline-surface-brand: var(--startline-adaptive-action);
@@ -389,7 +389,7 @@
   --startline-overlay-photo-top: var(--startline-overlay-deep-25);
   --startline-overlay-scrim: var(--startline-overlay-black-64);
   --startline-status-error-subtle: var(--startline-adaptive-raised);
-  --startline-status-info-subtle: var(--startline-adaptive-subtle);
+  --startline-status-info-subtle: var(--startline-adaptive-raised);
   --startline-status-success-subtle: var(--startline-adaptive-subtle);
   --startline-status-warning-subtle: var(--startline-adaptive-raised);
   --startline-surface-brand: var(--startline-adaptive-action);
@@ -503,7 +503,7 @@
   --startline-overlay-photo-top: var(--startline-overlay-deep-25);
   --startline-overlay-scrim: var(--startline-overlay-black-64);
   --startline-status-error-subtle: var(--startline-adaptive-raised);
-  --startline-status-info-subtle: var(--startline-adaptive-subtle);
+  --startline-status-info-subtle: var(--startline-adaptive-raised);
   --startline-status-success-subtle: var(--startline-adaptive-subtle);
   --startline-status-warning-subtle: var(--startline-adaptive-raised);
   --startline-surface-brand: var(--startline-adaptive-action);

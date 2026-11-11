@@ -37,7 +37,7 @@ Use **semantic colour tokens** (below) in components — never primitives or raw
 | Overlay/Photo Top | `*-overlay-photo-top` | `--startline-overlay-photo-top` | Overlay/Deep 25 (#05292540) | Overlay/Deep 25 (#05292540) | Photo hero gradient — top stop (keeps the tag readable). |
 | Overlay/Scrim | `*-overlay-scrim` | `--startline-overlay-scrim` | Overlay/Ink 48 (#1733327a) | Overlay/Black 64 (#000000a3) | Dimmed backdrop behind dialogs, sheets and the AI assistant. |
 | Status/Error Subtle | `*-status-error-subtle` | `--startline-status-error-subtle` | Red/100 (#fce8e6) | Adaptive/raised (#253936) | Background for error badges and banners. |
-| Status/Info Subtle | `*-status-info-subtle` | `--startline-status-info-subtle` | Teal/100 (#d8f0ed) | Adaptive/subtle (#2b4540) | Background for info badges and banners. |
+| Status/Info Subtle | `*-status-info-subtle` | `--startline-status-info-subtle` | Teal/100 (#d8f0ed) | Adaptive/raised (#253936) | Background for info badges and banners. Dark modes use a raised surface so tags stay visible on brand-tinted cards. |
 | Status/Success Subtle | `*-status-success-subtle` | `--startline-status-success-subtle` | Green/100 (#e4f4ea) | Adaptive/subtle (#2b4540) | Background for success badges and banners. |
 | Status/Warning Subtle | `*-status-warning-subtle` | `--startline-status-warning-subtle` | Amber/100 (#fbefd5) | Adaptive/raised (#253936) | Background for warning badges and banners. |
 | Surface/Brand | `*-surface-brand` | `--startline-surface-brand` | Teal/700 (#087f7a) | Adaptive/action (#9bebdd) | Brand-filled surfaces such as hero cards. |
