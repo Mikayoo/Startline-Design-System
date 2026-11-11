@@ -138,7 +138,10 @@ Then export it from `src/index.ts`, update the table above, run `npm run docs` a
 `scripts/no-hardcoded-values.test.ts` fails the build if a component contains a raw colour or an
 arbitrary Tailwind value (`p-[13px]`). Stories and tests may use layout-only arbitrary values.
 
-Code Connect files are `.figma.ts` templates (not `.figma.tsx` / `figma.connect()`). Map every Figma
+Code Connect files are `.figma.ts` templates (not `.figma.tsx` / `figma.connect()`). They are kept up to date
+but **not published**: publishing needs a Figma Organization/Enterprise plan, which Startline does not have.
+The Figma ↔ code link meanwhile is each Figma component description ("Code: <Button variant size>") plus a
+Dev Mode link to its source. Map every Figma
 property; `State` Hover/Pressed are dropped, `State=Disabled` → `disabled`. Validate with
 `npx figma connect parse`. Visual QA images live in `docs/qa/<component>/`.
 

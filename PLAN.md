@@ -255,3 +255,7 @@ All edits are in place: no component was recreated, so existing screen instances
 7. **Shadows** `Elevation/100`, `/200` use a fixed ink colour (no dark value); `Splash` now uses
    `Elevation/Shadow` — check it still looks as intended.
 8. Old `Primary Button` (194 uses) / `Secondary Button` (24 uses) remain deprecated in screens.
+- 2026-11-10 Figma plan is not Organization/Enterprise, so Code Connect cannot be published. The 21
+  `.figma.ts` templates stay in the repo (validated, ready if the plan changes). Instead: Figma component
+  descriptions name the code component and props, and each component gets Dev Mode links to its GitHub
+  source and Storybook story once the repo is public.
