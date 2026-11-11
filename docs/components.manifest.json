@@ -1285,6 +1285,40 @@
       "example": "<PriorityTile icon=\"home\" label=\"Housing\" selected={p.housing} onSelectedChange={(v) => set(\"housing\", v)} />"
     },
     {
+      "name": "CardHeader",
+      "summary": "Card header — icon tile, title and optional detail line at the top of an information card (\"When you call 211\").",
+      "description": "Card header — icon tile, title and optional detail line at the top of an information card (\"When you call 211\").",
+      "import": "import { CardHeader } from \"@startline/ui\"",
+      "source": "src/patterns/ScreenPatterns.tsx",
+      "props": [
+        {
+          "name": "icon",
+          "type": "IconName",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "detail",
+          "type": "string",
+          "required": false,
+          "description": "Optional second line, e.g. \"About 10 minutes\" (Figma `Detail` + `Show detail`)."
+        },
+        {
+          "name": "titleAs",
+          "type": "\"h4\" | Heading",
+          "required": false,
+          "default": "h3",
+          "description": "Heading level of the title."
+        }
+      ]
+    },
+    {
       "name": "EventCard",
       "summary": "Event card — thumbnail, date tag, title and place, for \"Near you\" and community lists.",
       "description": "Event card — thumbnail, date tag, title and place, for \"Near you\" and community lists.",

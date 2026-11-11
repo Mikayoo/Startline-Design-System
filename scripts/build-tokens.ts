@@ -32,6 +32,7 @@ interface TextStyle {
   fontStyle: string;
   fontSize: number;
   lineHeight: number | null;
+  /** Figma letter spacing in percent of the font size (Figma unit PERCENT). */
   letterSpacing: number;
   fontSizeVar: string | null;
   lineHeightVar: string | null;
@@ -184,7 +185,7 @@ ${snap.textStyles
       `  --text-${k}: ${varOf(s.fontSizeVar) ?? px(s.fontSize)};`,
       `  --text-${k}--line-height: ${varOf(s.lineHeightVar) ?? (s.lineHeight ? px(s.lineHeight) : "normal")};`,
       `  --text-${k}--font-weight: ${weight[s.fontStyle] ?? 400};`,
-      s.letterSpacing ? `  --text-${k}--letter-spacing: ${px(s.letterSpacing)};` : "",
+      s.letterSpacing ? `  --text-${k}--letter-spacing: ${s.letterSpacing / 100}em;` : "",
     ]
       .filter(Boolean)
       .join("\n");

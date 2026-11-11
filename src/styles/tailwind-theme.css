@@ -117,6 +117,14 @@
   --text-tab-label: var(--startline-font-size-2xs);
   --text-tab-label--line-height: var(--startline-line-height-2xs);
   --text-tab-label--font-weight: 600;
+  --text-display: var(--startline-font-size-3xl);
+  --text-display--line-height: var(--startline-line-height-display);
+  --text-display--font-weight: 700;
+  --text-display--letter-spacing: -0.015em;
+  --text-eyebrow: var(--startline-font-size-xs);
+  --text-eyebrow--line-height: var(--startline-line-height-xs);
+  --text-eyebrow--font-weight: 600;
+  --text-eyebrow--letter-spacing: 0.04em;
 
   /* Elevation (Figma effect styles) */
   --shadow-raised: 0 4px 16px 0 var(--startline-elevation-shadow);

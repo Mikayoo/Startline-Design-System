@@ -1,7 +1,8 @@
 {
   "codeConnect": {
     "include": [
-      "src/components/**/*.figma.ts"
+      "src/components/**/*.figma.ts",
+      "src/patterns/**/*.figma.ts"
     ],
     "label": "React"
   }

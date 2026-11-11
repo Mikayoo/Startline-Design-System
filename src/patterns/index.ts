@@ -1,4 +1,5 @@
 export {
+  CardHeader,
   EventCard,
   HeroCard,
   QuickAction,
@@ -7,6 +8,7 @@ export {
   ScreenHeader,
   SearchBar,
   SectionHeader,
+  type CardHeaderProps,
   type EventCardProps,
   type HeroCardProps,
   type QuickActionProps,

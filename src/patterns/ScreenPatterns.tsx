@@ -2,7 +2,7 @@
  * Screen patterns from Startline App v3.1 (Home and other top-level screens).
  * They are compositions of Startline tokens and components that repeat across screens.
  * Figma: App v3.1 / 09 Home — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=605-21
- * (Not yet Figma components — see PLAN.md open items.)
+ * Each is a Figma component on the Patterns page (Startline / Screen header, Hero card, …).
  */
 import * as React from "react";
 import { cn } from "@/lib/utils";
@@ -281,5 +281,30 @@ export function EventCard({ image, date, title, location, className, ...props }:
         ) : null}
       </span>
     </a>
+  );
+}
+
+/* ---------------------------------------------------------------- CardHeader */
+export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+  icon: IconName;
+  title: string;
+  /** Optional second line, e.g. "About 10 minutes" (Figma `Detail` + `Show detail`). */
+  detail?: string;
+  /** Heading level of the title. @default "h3" */
+  titleAs?: Heading | "h4";
+}
+
+/** Card header — icon tile, title and optional detail line at the top of an information card ("When you call 211"). */
+export function CardHeader({ icon, title, detail, titleAs: Title = "h3", className, ...props }: CardHeaderProps) {
+  return (
+    <div className={cn("flex items-center gap-3", className)} {...props}>
+      <span aria-hidden className="flex size-control-md shrink-0 items-center justify-center rounded-md bg-background-brand-subtle text-text-brand [&_svg]:size-5.5">
+        <Icon name={icon} />
+      </span>
+      <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+        <Title className="text-card-title text-text-primary">{title}</Title>
+        {detail ? <p className="text-caption text-text-secondary">{detail}</p> : null}
+      </div>
+    </div>
   );
 }

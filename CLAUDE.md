@@ -49,8 +49,9 @@ With no attribute the theme follows the device. To force one, set `data-theme` o
    - Spacing `Spacing/N` → `p-N`, `gap-N` (4 px grid: 1=4, 2=8, 3=12, 4=16, 5=20, 6=24, 8=32; half-steps
      0.5, 1.5, 2.5, 4.5 exist as Figma `Spacing/0-5` etc.).
    - Radius `Radius/SM|MD|LG|XL|2XL|Pill` → `rounded-sm|md|lg|xl|2xl|full`.
-   - Text styles → `text-screen-heading`, `text-section-title`, `text-title`, `text-card-title`, `text-body`,
-     `text-button`, `text-label`, `text-caption`, `text-navigation`, `text-tab-label`.
+   - Text styles → `text-display` (28 px screen/hero titles), `text-screen-heading`, `text-section-title`, `text-title`, `text-card-title`, `text-body`,
+     `text-button`, `text-label`, `text-caption`, `text-navigation`, `text-tab-label`, `text-eyebrow`
+     (capitals section labels like "DO THESE FIRST").
    - Control heights `Control/SM|MD|LG|XL` → `h-control-sm|md|lg|xl` (36/44/52/56 px).
    - Shadows `shadow-raised` (cards), `shadow-floating` (bottom bar), `shadow-action` (primary pill),
      `shadow-100`, `shadow-200` (Figma elevation styles). Photo overlays: `from-overlay-photo-top` … `to-overlay-photo-bottom`.
@@ -125,7 +126,8 @@ import line, every prop with `values` and `default`. Check it before using a pro
 ### Screen patterns (App v3.1)
 
 `ScreenHeader`, `SearchBar`, `HeroCard`, `QuickAction`, `SectionHeader`, `RecommendationCard`,
-`ReminderCard`, `EventCard` — compositions that repeat across v3.1 screens (not yet Figma components).
+`ReminderCard`, `EventCard`, `CardHeader` — compositions that repeat across v3.1 screens. Each is a Figma
+component on the Patterns page with a Code Connect file (`src/patterns/*.figma.ts`).
 A full screen built only from these and the components above: `src/examples/HomeScreen.tsx`
 (Storybook: Examples / Home). Copy its structure for new top-level screens.
 

@@ -305,5 +305,8 @@ Scope: App v3.1, Onboarding v3, Startline Screens (older). Depth: patterns + tok
   Onboarding v3 — 63 fills, 8 strokes, 71 texts, 474 spacing, 136 radii;
   Startline Screens — 44 strokes, 6 texts, 852 spacing, 320 radii. Screens: exact matches only (no snapping).
 - Left for review: ~25 one-off colours (e.g. #594d3d@0.4, #0a332e, #b9e6e2, #000000), Bold 34/40 splash titles, a few mixed-style texts.
-- NOT YET DONE: after-screenshots/visual check of updated screens (before shots in docs/qa/screens/before);
-  code side (CardHeader pattern, text-display / text-eyebrow tokens in the snapshot).
+- Visual check (docs/qa/screens/compare-*.png): older screens unchanged; App v3.1 and Onboarding shift ≤2 px.
+  Found and fixed: Display at 30 px made "What matters most now?" wrap to two lines → Display set to
+  28/34 (the most common big-title size; smaller never causes new wrapping).
+- Code: `text-display`, `text-eyebrow` tokens (letter spacing now generated in em from Figma percent);
+  `CardHeader` pattern; Code Connect files for all 9 pattern components (40 templates in total).

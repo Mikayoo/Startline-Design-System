@@ -96,6 +96,7 @@
   --startline-spacing-8: 32px;
   --startline-font-size-2xl: 24px;
   --startline-font-size-2xs: 11px;
+  --startline-font-size-3xl: 28px;
   --startline-font-size-4xl: 36px;
   --startline-font-size-lg: 18px;
   --startline-font-size-md: 16px;
@@ -106,6 +107,7 @@
   --startline-line-height-2xs: 14px;
   --startline-line-height-3xl: 44px;
   --startline-line-height-card: 22px;
+  --startline-line-height-display: 34px;
   --startline-line-height-lg: 28px;
   --startline-line-height-md: 24px;
   --startline-line-height-nav: 16px;

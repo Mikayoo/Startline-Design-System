@@ -33,6 +33,7 @@
 - [SelectField](#selectfield) — Select field — a tappable field showing a small label and the chosen value (Figma `Value`); opens the device's native list of options (best on phones and with screen readers)
 - [ToggleRow](#togglerow) — Toggle row — a labelled Switch in a list (reminders, privacy, offline)
 - [PriorityTile](#prioritytile) — Priority tile — square selectable tile (icon + label) for picking goals or priorities, in a 2-column grid
+- [CardHeader](#cardheader) — Card header — icon tile, title and optional detail line at the top of an information card ("When you call 211").
 - [EventCard](#eventcard) — Event card — thumbnail, date tag, title and place, for "Near you" and community lists.
 - [HeroCard](#herocard) — Hero card — the user's next step on a photo: glass tag, white title, step progress and an on-dark Pill button
 - [QuickAction](#quickaction) — Quick action — shortcut tile (icon in a circle + label)
@@ -762,6 +763,24 @@ Also accepts the standard HTML attributes of its root element (`className`, `id`
 ```tsx
 <PriorityTile icon="home" label="Housing" selected={p.housing} onSelectedChange={(v) => set("housing", v)} />
 ```
+
+---
+
+## CardHeader
+
+Card header — icon tile, title and optional detail line at the top of an information card ("When you call 211").
+
+Source: `src/patterns/ScreenPatterns.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `icon` * | `IconName` |  |  |
+| `title` * | `string` |  |  |
+| `detail` | `string` |  | Optional second line, e.g. "About 10 minutes" (Figma `Detail` + `Show detail`). |
+| `titleAs` | `"h4" \| Heading` | `h3` | Heading level of the title. |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
 
 ---
 

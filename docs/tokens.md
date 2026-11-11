@@ -113,6 +113,8 @@ Themes: `light` (default), `dark`, `ic-light`, `ic-dark` (high contrast) via `da
 | Startline / Section title | `text-section-title` | Plus Jakarta Sans SemiBold | 18/24px | Section headings on a screen ("Recommended for you"). |
 | Startline / Title | `text-title` | Plus Jakarta Sans Bold | 20/26px | Prominent card titles, e.g. reminder cards. |
 | Startline / Tab label | `text-tab-label` | Plus Jakarta Sans SemiBold | 11/14px | Bottom navigation tab labels (11/14). Keep labels to one short word. |
+| Startline / Display | `text-display` | Plus Jakarta Sans Bold | 28/34px | Big screen titles ("My Path", "What matters most now?") and photo hero titles (28/34). One per screen. |
+| Startline / Eyebrow | `text-eyebrow` | Plus Jakarta Sans SemiBold | 12/16px | Small section labels above lists ("DO THESE FIRST"). Write in capitals. |
 
 ## Elevation
 
