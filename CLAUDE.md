@@ -49,10 +49,11 @@ With no attribute the theme follows the device. To force one, set `data-theme` o
    - Spacing `Spacing/N` → `p-N`, `gap-N` (4 px grid: 1=4, 2=8, 3=12, 4=16, 5=20, 6=24, 8=32; half-steps
      0.5, 1.5, 2.5, 4.5 exist as Figma `Spacing/0-5` etc.).
    - Radius `Radius/SM|MD|LG|XL|2XL|Pill` → `rounded-sm|md|lg|xl|2xl|full`.
-   - Text styles → `text-screen-heading`, `text-card-title`, `text-body`, `text-button`,
-     `text-label`, `text-caption`, `text-navigation`.
-   - Control heights `Control/SM|MD|LG` → `h-control-sm|md|lg` (36/44/52 px).
-   - Shadows `shadow-100`, `shadow-200`, `shadow-raised` (Figma elevation styles).
+   - Text styles → `text-screen-heading`, `text-section-title`, `text-title`, `text-card-title`, `text-body`,
+     `text-button`, `text-label`, `text-caption`, `text-navigation`, `text-tab-label`.
+   - Control heights `Control/SM|MD|LG|XL` → `h-control-sm|md|lg|xl` (36/44/52/56 px).
+   - Shadows `shadow-raised` (cards), `shadow-floating` (bottom bar), `shadow-action` (primary pill),
+     `shadow-100`, `shadow-200` (Figma elevation styles). Photo overlays: `from-overlay-photo-top` … `to-overlay-photo-bottom`.
 3. **Pick colours by meaning, not by look.** `Text/Error` for error text, `Action/Primary` for the
    main action. Token descriptions in `docs/tokens.md` say what each is for.
 4. **One primary Button per screen.** Secondary for alternatives, tertiary for low emphasis.
@@ -87,41 +88,58 @@ Figma component properties become React props, so Figma and code read the same:
 
 ## Components
 
-All 19 Figma components are built (✅ stories + Code Connect + tests, checked against Figma in light and
+All Startline Figma components (original set + the v3.1 set) are built (✅ stories + Code Connect + tests, checked against Figma in light and
 dark). Full props, types and defaults: **[docs/components.md](docs/components.md)** (generated — read it).
 Same data as JSON for tools: **[docs/components.manifest.json](docs/components.manifest.json)** — name, Figma node,
 import line, every prop with `values` and `default`. Check it before using a prop.
 
 | Component | Use when | Key props |
 |---|---|---|
-| `Button` | An action. One `primary` per screen | `variant` primary·secondary·tertiary·destructive, `size` md·lg, `leadingIcon`, `trailingIcon`, `asChild` |
-| `Icon` | One of the 12 Startline icons (otherwise `lucide-react` with `strokeWidth={1.8}`) | `name`, `label` (only if meaningful alone) |
+| `PillButton` | **The main screen action** (56 px, full width or on a photo hero). One primary per screen | `variant` primary·secondary·on-dark·ghost, `arrow`, `asChild` |
+| `Button` | Compact actions inside cards/panels, destructive actions | `variant` primary·secondary·tertiary·destructive, `size` md·lg, `leadingIcon`, `trailingIcon`, `asChild` |
+| `IconButton` | Round 44 px icon action (back, bell, search, more) | `icon` *, `label` *, `variant` light·glass, `dot` |
+| `Icon` | One of the 39 Startline v3.1 icons (otherwise `lucide-react` with `strokeWidth={1.75}`) | `name`, `label` (only if meaningful alone) |
 | `LogoMark`, `LogoLockup`, `AppIcon` | Brand | `theme` color·mono·inverse, `layout` horizontal·stacked |
 | `Avatar` | A person | `initials`, `type` initials·icon, `size` sm·md·lg, `name` |
 | `SearchField` | Searching a list | `size`, `onClear`, plus input props; needs `aria-label` |
 | `TextField` | Form input | `label` *, `helper`, `error`, plus input props |
 | `Switch` | Instant on/off setting | `checked`, `onCheckedChange`, `disabled`; needs a label |
-| `ChoiceCard` | Questionnaire answers | `label` *, `helper`, `selection` single·multiple, `name`, `value` |
+| `ChoiceCard` | Onboarding question answers | `title` *, `helper`, `icon`, `control` radio·check, `name`, `value` |
+| `PriorityTile` | Picking goals in a 2-column grid | `icon` *, `label` *, `selected`, `onSelectedChange` |
+| `SelectField` | Choosing from a list (province, language) | `label` *, `options` *, `value`, `onValueChange` |
+| `ToggleRow` | A labelled switch in a settings/reminder list | `label` *, `checked`, `onCheckedChange` |
 | `Badge` | Read-only status | `status` neutral·info·success·warning·error, `size`, `dot` |
 | `Chip` | Filter toggle | `selected`, `onSelectedChange`, `size` sm·md, `leadingIcon` |
 | `SourceIndicator` | Where info comes from — **always on AI text** | `kind` official·verified·updated·ai-summary, `size` |
-| `TaskCard` | A next step to do | `state` next·upcoming·complete, `title` *, `description`, `meta`, `actionLabel`, `actionHref`/`onAction` |
+| `PlanCard` | A step in the user's plan (My Path) | `state` default·next, `step`, `topic`, `title` *, `time`, `location`, `image`, `href` * |
+| `ReviewRow` | One answer in a review/summary | `icon` *, `label` *, `value` *, `actionLabel`, `onAction` |
+| `TaskCard` | A next step with a visible action | `state` next·upcoming·complete, `title` *, `description`, `meta`, `actionLabel`, `actionHref`/`onAction` |
 | `ResourceListItem` | Comparing services in a list | `provider` *, `title` *, `description`, `kind` resource·service, `emphasis`, `href` |
 | `GuidanceCard` | Information with no action | `title` *, `body`, `layout` card·row·tile, `tone` neutral·info |
 | `SettingsRow` | A row in settings | `label` *, `value`, `href`/`onClick`, `disabled` |
-| `BackButton` | Leaving a detail screen | `label`, `onClick` |
-| `BottomNavigation` | The 5 top-level destinations | `active` *, `items` (labels/hrefs), `linkAs` (router Link) |
+| `BackButton` | Leaving a detail screen (= IconButton arrow-left) | `label`, `onClick` |
+| `BottomNavigation` | The 5 top-level destinations (floating v3.1 bar) | `active` *, `items` (labels/hrefs), `linkAs` (router Link) |
 | `AskStartlineAction` | Open the AI assistant from context | `format` compact·contextual, children |
 | `AIAssistantPanel` (+ `AIAssistantQuestion`, `AIAssistantSuggestions`) | An AI step | `state` entry·answer·escalation, `subtitle`, `footnote`, children |
 
+### Screen patterns (App v3.1)
+
+`ScreenHeader`, `SearchBar`, `HeroCard`, `QuickAction`, `SectionHeader`, `RecommendationCard`,
+`ReminderCard`, `EventCard` — compositions that repeat across v3.1 screens (not yet Figma components).
+A full screen built only from these and the components above: `src/examples/HomeScreen.tsx`
+(Storybook: Examples / Home). Copy its structure for new top-level screens.
+
 ### Composition rules
-- **Screens:** page background is `bg-surface-warm`; cards sit on it. Top-level screens end with
-  `BottomNavigation`; detail screens start with `BackButton` and a `text-screen-heading` title.
+- **Screens:** page background is `bg-surface-warm`; cards sit on it with `shadow-raised`. Screen padding
+  `px-6`, vertical rhythm `gap-5`. Top-level screens start with `ScreenHeader` and float `BottomNavigation`
+  (`absolute inset-x-4 bottom-6`); detail screens start with `BackButton` and a `text-screen-heading` title.
+- **Buttons:** the main action is a `PillButton`; use `Button` only for compact in-card actions.
 - **AI content:** every AI answer shows `<SourceIndicator kind="ai-summary">`, the sources used, and a way
   to reach a human. Use `AIAssistantPanel state="escalation"` for legal, immigration or eligibility decisions.
 - **Lists:** wrap `ResourceListItem`, `SettingsRow` in `<ul><li>`; `ChoiceCard` groups in `<fieldset><legend>`.
 - **Text:** every user-visible string is a prop — pass translated text; English defaults exist only as fallbacks.
-- **Don't use** the deprecated Figma components `Primary Button`, `Secondary Button`, `Notification`;
+- **Don't use** the deprecated/legacy Figma components `Primary Button`, `Secondary Button`, `Notification`,
+  `Bottom Navigation (legacy)`, `Choice card (legacy)`, `Icon (legacy)`;
   device mock-ups (Status bar, Dynamic Island) are not in code.
 
 ## Adding or changing a component

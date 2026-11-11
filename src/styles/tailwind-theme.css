@@ -37,14 +37,20 @@
   --color-focus-ring: var(--startline-focus-ring);
   --color-navigation-foreground-active: var(--startline-navigation-foreground-active);
   --color-navigation-foreground-inactive: var(--startline-navigation-foreground-inactive);
+  --color-overlay-photo-bottom: var(--startline-overlay-photo-bottom);
+  --color-overlay-photo-middle: var(--startline-overlay-photo-middle);
+  --color-overlay-photo-top: var(--startline-overlay-photo-top);
   --color-overlay-scrim: var(--startline-overlay-scrim);
   --color-status-error-subtle: var(--startline-status-error-subtle);
   --color-status-info-subtle: var(--startline-status-info-subtle);
   --color-status-success-subtle: var(--startline-status-success-subtle);
   --color-status-warning-subtle: var(--startline-status-warning-subtle);
   --color-surface-brand: var(--startline-surface-brand);
+  --color-surface-brand-deep-end: var(--startline-surface-brand-deep-end);
+  --color-surface-brand-deep-start: var(--startline-surface-brand-deep-start);
   --color-surface-disabled: var(--startline-surface-disabled);
   --color-surface-glass: var(--startline-surface-glass);
+  --color-surface-glass-dark: var(--startline-surface-glass-dark);
   --color-surface-primary: var(--startline-surface-primary);
   --color-surface-secondary: var(--startline-surface-secondary);
   --color-surface-warm: var(--startline-surface-warm);
@@ -55,6 +61,7 @@
   --color-text-inverse: var(--startline-text-inverse);
   --color-text-on-danger: var(--startline-text-on-danger);
   --color-text-on-media: var(--startline-text-on-media);
+  --color-text-on-media-subtle: var(--startline-text-on-media-subtle);
   --color-text-primary: var(--startline-text-primary);
   --color-text-secondary: var(--startline-text-secondary);
   --color-text-success: var(--startline-text-success);

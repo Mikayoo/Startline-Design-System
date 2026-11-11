@@ -210,21 +210,28 @@
         },
         {
           "name": "size",
-          "type": "\"md\" | \"lg\" | \"sm\"",
+          "type": "\"md\" | \"lg\" | \"sm\" | \"xl\"",
           "required": false,
           "values": [
             "md",
             "lg",
-            "sm"
+            "sm",
+            "xl"
           ],
           "default": "md",
-          "description": "Figma `Size`: sm 32 px, md 40 px, lg 48 px."
+          "description": "Figma `Size`: sm 32 px, md 40 px, lg 48 px; xl 44 px is the v3.1 screen-header photo."
         },
         {
           "name": "name",
           "type": "string",
           "required": false,
           "description": "The person's full name, read by screen readers. Omit only when the name is shown next to the avatar."
+        },
+        {
+          "name": "src",
+          "type": "string",
+          "required": false,
+          "description": "Photo URL (v3.1). Shown instead of initials/icon."
         }
       ],
       "example": "<Avatar initials=\"AM\" name=\"Amina Mohamed\" size=\"lg\" />"
@@ -1276,6 +1283,285 @@
         }
       ],
       "example": "<PriorityTile icon=\"home\" label=\"Housing\" selected={p.housing} onSelectedChange={(v) => set(\"housing\", v)} />"
+    },
+    {
+      "name": "EventCard",
+      "summary": "Event card — thumbnail, date tag, title and place, for \"Near you\" and community lists.",
+      "description": "Event card — thumbnail, date tag, title and place, for \"Near you\" and community lists.",
+      "import": "import { EventCard } from \"@startline/ui\"",
+      "source": "src/patterns/ScreenPatterns.tsx",
+      "props": [
+        {
+          "name": "image",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "required": true,
+          "description": "e.g. \"Sat 31 Oct\"."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "location",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "HeroCard",
+      "summary": "Hero card — the user's next step on a photo: glass tag, white title, step progress and an on-dark Pill button",
+      "description": "Hero card — the user's next step on a photo: glass tag, white title, step progress and an on-dark Pill button. One per screen.",
+      "import": "import { HeroCard } from \"@startline/ui\"",
+      "source": "src/patterns/ScreenPatterns.tsx",
+      "props": [
+        {
+          "name": "image",
+          "type": "string",
+          "required": true,
+          "description": "Background photo URL. Decorative (the title carries the meaning)."
+        },
+        {
+          "name": "tag",
+          "type": "string",
+          "required": false,
+          "description": "Glass tag at the top, e.g. \"Next step · Housing\"."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "description": "Hero title."
+        },
+        {
+          "name": "progress",
+          "type": "{ current: number; total: number; label: string; }",
+          "required": false,
+          "description": "Progress, e.g. { current: 1, total: 3, label: \"1 of 3 steps\" }."
+        },
+        {
+          "name": "actionLabel",
+          "type": "string",
+          "required": false,
+          "description": "Pill action label, e.g. \"Continue\"."
+        },
+        {
+          "name": "actionHref",
+          "type": "string",
+          "required": false,
+          "description": "Pill action link."
+        },
+        {
+          "name": "titleAs",
+          "type": "Heading",
+          "required": false,
+          "default": "h2",
+          "description": "Heading level."
+        }
+      ]
+    },
+    {
+      "name": "QuickAction",
+      "summary": "Quick action — shortcut tile (icon in a circle + label)",
+      "description": "Quick action — shortcut tile (icon in a circle + label). Use 3 in a row.",
+      "import": "import { QuickAction } from \"@startline/ui\"",
+      "source": "src/patterns/ScreenPatterns.tsx",
+      "props": [
+        {
+          "name": "icon",
+          "type": "IconName",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "RecommendationCard",
+      "summary": "Recommendation card — photo, topic tag, title and source",
+      "description": "Recommendation card — photo, topic tag, title and source. Use in a horizontal carousel (236 px wide).",
+      "import": "import { RecommendationCard } from \"@startline/ui\"",
+      "source": "src/patterns/ScreenPatterns.tsx",
+      "props": [
+        {
+          "name": "image",
+          "type": "string",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "topic",
+          "type": "string",
+          "required": true,
+          "description": "Topic tag, e.g. \"Health\"."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "required": true,
+          "description": "Where it comes from, e.g. \"Ontario.ca\". Shown with a check."
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "ReminderCard",
+      "summary": "Reminder card — deep brand card for what's coming up (e.g",
+      "description": "Reminder card — deep brand card for what's coming up (e.g. \"1 reminder this week\").",
+      "import": "import { ReminderCard } from \"@startline/ui\"",
+      "source": "src/patterns/ScreenPatterns.tsx",
+      "props": [
+        {
+          "name": "icon",
+          "type": "IconName",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "detail",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "ScreenHeader",
+      "summary": "Screen header — optional photo, greeting, screen title (h1) and one action",
+      "description": "Screen header — optional photo, greeting, screen title (h1) and one action. Top of top-level screens.",
+      "import": "import { ScreenHeader } from \"@startline/ui\"",
+      "source": "src/patterns/ScreenPatterns.tsx",
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "required": false,
+          "description": "Small line above the title, e.g. \"Good morning, Kelvin\"."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "description": "Screen title (the page's h1)."
+        },
+        {
+          "name": "avatarSrc",
+          "type": "string",
+          "required": false,
+          "description": "Profile photo URL shown at the start."
+        },
+        {
+          "name": "action",
+          "type": "ReactNode",
+          "required": false,
+          "description": "Trailing action, usually an IconButton (notifications, search)."
+        }
+      ]
+    },
+    {
+      "name": "SearchBar",
+      "summary": "Search bar — rounded search field plus the Ask Startline (AI) button",
+      "description": "Search bar — rounded search field plus the Ask Startline (AI) button. Give the field an `aria-label`.",
+      "import": "import { SearchBar } from \"@startline/ui\"",
+      "source": "src/patterns/ScreenPatterns.tsx",
+      "props": [
+        {
+          "name": "onAsk",
+          "type": "(() => void)",
+          "required": false,
+          "description": "Called by the AI button next to the field. Omit to hide the button."
+        },
+        {
+          "name": "askLabel",
+          "type": "string",
+          "required": false,
+          "default": "Ask Startline",
+          "description": "Accessible name of the AI button."
+        }
+      ]
+    },
+    {
+      "name": "SectionHeader",
+      "summary": "Section header — section title (Section title style) and an optional \"See all\" link.",
+      "description": "Section header — section title (Section title style) and an optional \"See all\" link.",
+      "import": "import { SectionHeader } from \"@startline/ui\"",
+      "source": "src/patterns/ScreenPatterns.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "actionLabel",
+          "type": "string",
+          "required": false,
+          "description": "e.g. \"See all\"."
+        },
+        {
+          "name": "actionHref",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "titleAs",
+          "type": "Heading",
+          "required": false,
+          "default": "h2",
+          "description": "Heading level."
+        }
+      ]
     }
   ]
 }

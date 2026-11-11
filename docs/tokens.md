@@ -32,14 +32,20 @@ Use **semantic colour tokens** (below) in components — never primitives or raw
 | Focus/Ring | `*-focus-ring` | `--startline-focus-ring` | Teal/700 (#087f7a) | Adaptive/teal (#83ded2) | Focus outline on any keyboard-focused control. Always 2 px (Border/Focus) with an offset. |
 | Navigation/Foreground Active | `*-navigation-foreground-active` | `--startline-navigation-foreground-active` | Navigation/Active (#0d5c63) | Adaptive/teal (#83ded2) | Icon and label of the active bottom-navigation tab. |
 | Navigation/Foreground Inactive | `*-navigation-foreground-inactive` | `--startline-navigation-foreground-inactive` | Neutral/Slate (#607371) | Adaptive/secondary (#b8ccc7) | Icon and label of inactive bottom-navigation tabs. |
+| Overlay/Photo Bottom | `*-overlay-photo-bottom` | `--startline-overlay-photo-bottom` | Overlay/Deep 92 (#052925eb) | Overlay/Deep 92 (#052925eb) | Photo hero gradient — bottom stop (white title stays readable). |
+| Overlay/Photo Middle | `*-overlay-photo-middle` | `--startline-overlay-photo-middle` | Overlay/Deep 05 (#0529250d) | Overlay/Deep 05 (#0529250d) | Photo hero gradient — middle stop (photo shows through). |
+| Overlay/Photo Top | `*-overlay-photo-top` | `--startline-overlay-photo-top` | Overlay/Deep 25 (#05292540) | Overlay/Deep 25 (#05292540) | Photo hero gradient — top stop (keeps the tag readable). |
 | Overlay/Scrim | `*-overlay-scrim` | `--startline-overlay-scrim` | Overlay/Ink 48 (#1733327a) | Overlay/Black 64 (#000000a3) | Dimmed backdrop behind dialogs, sheets and the AI assistant. |
 | Status/Error Subtle | `*-status-error-subtle` | `--startline-status-error-subtle` | Red/100 (#fce8e6) | Adaptive/raised (#253936) | Background for error badges and banners. |
 | Status/Info Subtle | `*-status-info-subtle` | `--startline-status-info-subtle` | Teal/100 (#d8f0ed) | Adaptive/subtle (#2b4540) | Background for info badges and banners. |
 | Status/Success Subtle | `*-status-success-subtle` | `--startline-status-success-subtle` | Green/100 (#e4f4ea) | Adaptive/subtle (#2b4540) | Background for success badges and banners. |
 | Status/Warning Subtle | `*-status-warning-subtle` | `--startline-status-warning-subtle` | Amber/100 (#fbefd5) | Adaptive/raised (#253936) | Background for warning badges and banners. |
 | Surface/Brand | `*-surface-brand` | `--startline-surface-brand` | Teal/700 (#087f7a) | Adaptive/action (#9bebdd) | Brand-filled surfaces such as hero cards. |
+| Surface/Brand Deep End | `*-surface-brand-deep-end` | `--startline-surface-brand-deep-end` | Teal/950 (#052624) | Teal/950 (#052624) | Deep brand card gradient — end. |
+| Surface/Brand Deep Start | `*-surface-brand-deep-start` | `--startline-surface-brand-deep-start` | Teal/850 (#084d45) | Teal/850 (#084d45) | Deep brand card gradient — start (reminder / progress cards). |
 | Surface/Disabled | `*-surface-disabled` | `--startline-surface-disabled` | Neutral/100 (#e6eeec) | Adaptive/raised (#253936) | Surface of disabled containers. |
 | Surface/Glass | `*-surface-glass` | `--startline-surface-glass` | Overlay/White 18 (#ffffff2e) | Overlay/White 18 (#ffffff2e) | Frosted fill for controls placed on photos (Icon button Glass). Same in every mode. |
+| Surface/Glass Dark | `*-surface-glass-dark` | `--startline-surface-glass-dark` | Overlay/Deep 40 (#05292566) | Overlay/Deep 40 (#05292566) | Dark frosted tag on photos (hero "Next step" tag). |
 | Surface/Primary | `*-surface-primary` | `--startline-surface-primary` | Neutral/White (#ffffff) | Adaptive/surface (#1b2a28) | Default surface for cards, sheets, fields. |
 | Surface/Secondary | `*-surface-secondary` | `--startline-surface-secondary` | Neutral/Mist (#f3f7f6) | Adaptive/raised (#253936) | Secondary surface for grouped or nested areas. |
 | Surface/Warm | `*-surface-warm` | `--startline-surface-warm` | Sand/100 (#f8f2e8) | Adaptive/canvas (#111c1b) | Warm app canvas behind cards (sand). |
@@ -50,6 +56,7 @@ Use **semantic colour tokens** (below) in components — never primitives or raw
 | Text/Inverse | `*-text-inverse` | `--startline-text-inverse` | Neutral/White (#ffffff) | Adaptive/actionInk (#103a35) | Text and icons on Action/Primary or Surface/Brand fills. |
 | Text/On Danger | `*-text-on-danger` | `--startline-text-on-danger` | Neutral/White (#ffffff) | Adaptive/errorInk (#5c1712) | Text and icons placed on Action/Danger. |
 | Text/On Media | `*-text-on-media` | `--startline-text-on-media` | Neutral/White (#ffffff) | Neutral/White (#ffffff) | Text over photos or dark imagery. Stays white in every mode. |
+| Text/On Media Subtle | `*-text-on-media-subtle` | `--startline-text-on-media-subtle` | Overlay/White 80 (#ffffffcc) | Overlay/White 80 (#ffffffcc) | Secondary text on photos and deep brand cards. |
 | Text/Primary | `*-text-primary` | `--startline-text-primary` | Neutral/Ink (#173332) | Adaptive/text (#f4f4ee) | Default text colour for headings and body copy. |
 | Text/Secondary | `*-text-secondary` | `--startline-text-secondary` | Neutral/Slate (#607371) | Adaptive/secondary (#b8ccc7) | Supporting text: helper text, metadata, captions. |
 | Text/Success | `*-text-success` | `--startline-text-success` | Green/600 (#2e8a57) | Adaptive/success (#9edab2) | Success messages and completed states. |

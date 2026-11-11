@@ -17,6 +17,7 @@ const walk = (dir: string) => {
   }
 };
 walk("src/components");
+walk("src/patterns");
 
 const RULES: [string, RegExp][] = [
   ["raw hex colour", /#[0-9a-fA-F]{3,8}\b/],

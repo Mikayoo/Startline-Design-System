@@ -33,6 +33,14 @@
 - [SelectField](#selectfield) — Select field — a tappable field showing a small label and the chosen value (Figma `Value`); opens the device's native list of options (best on phones and with screen readers)
 - [ToggleRow](#togglerow) — Toggle row — a labelled Switch in a list (reminders, privacy, offline)
 - [PriorityTile](#prioritytile) — Priority tile — square selectable tile (icon + label) for picking goals or priorities, in a 2-column grid
+- [EventCard](#eventcard) — Event card — thumbnail, date tag, title and place, for "Near you" and community lists.
+- [HeroCard](#herocard) — Hero card — the user's next step on a photo: glass tag, white title, step progress and an on-dark Pill button
+- [QuickAction](#quickaction) — Quick action — shortcut tile (icon in a circle + label)
+- [RecommendationCard](#recommendationcard) — Recommendation card — photo, topic tag, title and source
+- [ReminderCard](#remindercard) — Reminder card — deep brand card for what's coming up (e.g
+- [ScreenHeader](#screenheader) — Screen header — optional photo, greeting, screen title (h1) and one action
+- [SearchBar](#searchbar) — Search bar — rounded search field plus the Ask Startline (AI) button
+- [SectionHeader](#sectionheader) — Section header — section title (Section title style) and an optional "See all" link.
 
 ## Button
 
@@ -157,8 +165,9 @@ Source: `src/components/avatar/Avatar.tsx`
 |---|---|---|---|
 | `initials` | `string` |  | Up to 2 letters shown in the circle (Figma `Initials`). |
 | `type` | `"initials" \| "icon"` | `initials" when `initials` is set, otherwise "icon` | Figma `Type`. `initials` shows the letters; `icon` shows a generic person icon. |
-| `size` | `"md" \| "lg" \| "sm"` | `md` | Figma `Size`: sm 32 px, md 40 px, lg 48 px. |
+| `size` | `"md" \| "lg" \| "sm" \| "xl"` | `md` | Figma `Size`: sm 32 px, md 40 px, lg 48 px; xl 44 px is the v3.1 screen-header photo. |
 | `name` | `string` |  | The person's full name, read by screen readers. Omit only when the name is shown next to the avatar. |
+| `src` | `string` |  | Photo URL (v3.1). Shown instead of initials/icon. |
 
 Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
 
@@ -753,3 +762,149 @@ Also accepts the standard HTML attributes of its root element (`className`, `id`
 ```tsx
 <PriorityTile icon="home" label="Housing" selected={p.housing} onSelectedChange={(v) => set("housing", v)} />
 ```
+
+---
+
+## EventCard
+
+Event card — thumbnail, date tag, title and place, for "Near you" and community lists.
+
+Source: `src/patterns/ScreenPatterns.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `image` | `string` |  |  |
+| `date` * | `string` |  | e.g. "Sat 31 Oct". |
+| `title` * | `string` |  |  |
+| `location` | `string` |  |  |
+| `href` * | `string` |  |  |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
+
+---
+
+## HeroCard
+
+Hero card — the user's next step on a photo: glass tag, white title, step progress and an on-dark Pill button. One per screen.
+
+Source: `src/patterns/ScreenPatterns.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `image` * | `string` |  | Background photo URL. Decorative (the title carries the meaning). |
+| `tag` | `string` |  | Glass tag at the top, e.g. "Next step · Housing". |
+| `title` * | `string` |  | Hero title. |
+| `progress` | `{ current: number; total: number; label: string; }` |  | Progress, e.g. { current: 1, total: 3, label: "1 of 3 steps" }. |
+| `actionLabel` | `string` |  | Pill action label, e.g. "Continue". |
+| `actionHref` | `string` |  | Pill action link. |
+| `titleAs` | `Heading` | `h2` | Heading level. |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
+
+---
+
+## QuickAction
+
+Quick action — shortcut tile (icon in a circle + label). Use 3 in a row.
+
+Source: `src/patterns/ScreenPatterns.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `icon` * | `IconName` |  |  |
+| `label` * | `string` |  |  |
+| `href` * | `string` |  |  |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
+
+---
+
+## RecommendationCard
+
+Recommendation card — photo, topic tag, title and source. Use in a horizontal carousel (236 px wide).
+
+Source: `src/patterns/ScreenPatterns.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `image` * | `string` |  |  |
+| `topic` * | `string` |  | Topic tag, e.g. "Health". |
+| `title` * | `string` |  |  |
+| `source` * | `string` |  | Where it comes from, e.g. "Ontario.ca". Shown with a check. |
+| `href` * | `string` |  |  |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
+
+---
+
+## ReminderCard
+
+Reminder card — deep brand card for what's coming up (e.g. "1 reminder this week").
+
+Source: `src/patterns/ScreenPatterns.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `icon` | `IconName` |  |  |
+| `title` * | `string` |  |  |
+| `detail` | `string` |  |  |
+| `href` * | `string` |  |  |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
+
+---
+
+## ScreenHeader
+
+Screen header — optional photo, greeting, screen title (h1) and one action. Top of top-level screens.
+
+Source: `src/patterns/ScreenPatterns.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `eyebrow` | `string` |  | Small line above the title, e.g. "Good morning, Kelvin". |
+| `title` * | `string` |  | Screen title (the page's h1). |
+| `avatarSrc` | `string` |  | Profile photo URL shown at the start. |
+| `action` | `ReactNode` |  | Trailing action, usually an IconButton (notifications, search). |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
+
+---
+
+## SearchBar
+
+Search bar — rounded search field plus the Ask Startline (AI) button. Give the field an `aria-label`.
+
+Source: `src/patterns/ScreenPatterns.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `onAsk` | `(() => void)` |  | Called by the AI button next to the field. Omit to hide the button. |
+| `askLabel` | `string` | `Ask Startline` | Accessible name of the AI button. |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
+
+---
+
+## SectionHeader
+
+Section header — section title (Section title style) and an optional "See all" link.
+
+Source: `src/patterns/ScreenPatterns.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `title` * | `string` |  |  |
+| `actionLabel` | `string` |  | e.g. "See all". |
+| `actionHref` | `string` |  |  |
+| `titleAs` | `Heading` | `h2` | Heading level. |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+

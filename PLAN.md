@@ -259,3 +259,36 @@ All edits are in place: no component was recreated, so existing screen instances
   `.figma.ts` templates stay in the repo (validated, ready if the plan changes). Instead: Figma component
   descriptions name the code component and props, and each component gets Dev Mode links to its GitHub
   source and Storybook story once the repo is public.
+
+## v3.1 promotion (2026-11-10)
+Decision: App v3.1 is the real product. Its 9 components and 38 icons lived on the "Onboarding v3" page,
+outside the design system. Decision on off-scale values: add a few tokens, snap the rest (≤2 px).
+
+**Figma**
+- Promoted, renamed `Startline / …`, described, token-bound, moved to DS pages (all instances kept):
+  Pill button, Icon button, Bottom Navigation (v3.1 tab bar), Choice card (v3.1 option card), Plan card,
+  Review row, Select field, Toggle row, Priority tile. `Style` → `Variant` on Pill button and Icon button.
+  New text properties: Plan card `Location`, `Status label`; Review row `Action label`.
+- 38 v3.1 icons combined into `Startline / Icon` (property `Name`); 1,100 instances kept.
+- Legacy (kept for older screens, marked DEPRECATED): Bottom Navigation (legacy), Choice card (legacy), Icon (legacy).
+- New tokens: Radius/Card 20, Control/XL 56, Font Size/2XS 11 + Line Height/2XS 14, Surface/Glass,
+  Border/Glass, Surface/Glass Dark, Overlay/Photo Top|Middle|Bottom, Surface/Brand Deep Start|End,
+  Text/On Media Subtle. Text styles: Section title, Title, Tab label. Effect styles: Elevation/Action,
+  Elevation/Floating, Effect/Glass.
+- Snapped: radius 14→12, 18→16, 22→24; gaps 14→12, padding 14→16; 22 px titles → Screen heading 24.
+  Reverted: tab labels kept at 11 px (Tab label style) — 12 px did not fit "Resources".
+  Side effect: hero "Continue" pill is now the standard 56 px (was hand-set to 44 px).
+
+**Code**: PillButton, IconButton, PlanCard, ReviewRow, SelectField, ToggleRow, PriorityTile (new);
+BottomNavigation, ChoiceCard, BackButton, Icon (39 icons + aliases) updated; Avatar photo support;
+screen patterns (ScreenHeader, SearchBar, HeroCard, QuickAction, SectionHeader, RecommendationCard,
+ReminderCard, EventCard); `src/examples/HomeScreen.tsx` rebuilds App v3.1 / 09 Home only from the library —
+compared with Figma in light, dark and Arabic RTL (`docs/qa/home/comparison.png`).
+
+**Open items (v3.1)**
+9. Make the screen patterns real Figma components (Hero card, Quick action, Recommendation card, Reminder
+   card, Event card, Section header, Search bar, Screen header) and swap the one-off frames on the 40 screens.
+10. The one-off frames on screens still use raw colours/values (e.g. hero gradients, reminder card); bind them
+    to the new tokens when converting to components.
+11. Reminder card shadow (raw 0/10/24, 25 %) mapped to `Elevation/Floating` in code.
+12. Pill button vs Button: two button families exist; decide whether Button should adopt the pill shape.
