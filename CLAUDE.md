@@ -69,8 +69,9 @@ With no attribute the theme follows the device. To force one, set `data-theme` o
    icons (chevrons, arrows, back) with `rtl:-scale-x-100`. A test fails on left/right utilities.
 9. **Set `lang` (and `dir="rtl"` for ar/fa/ur) on user-language content** so the right font and glyph forms
    are chosen. Never hard-code a font family.
-10. **Never publish or push.** `git push`, `npx figma connect publish` and `npm publish` are done by
-   the human owner.
+10. **Push, but never publish.** Agents may `git push` committed work to this repo's GitHub remote
+   without asking (owner's standing approval, 2026-11-12). Never force-push. `npx figma connect publish`
+   and `npm publish` are still done by the human owner.
 
 ## Figma → code naming
 
