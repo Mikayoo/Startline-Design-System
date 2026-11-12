@@ -62,7 +62,8 @@ With no attribute the theme follows the device. To force one, set `data-theme` o
 6. **Colour never carries meaning alone** — pair status colours with a label or icon.
 7. **Brand artwork is the only fixed-colour code** (`src/brand/`). Do not copy its colours elsewhere.
    **Do not edit generated files by hand:** `src/styles/tokens.css`, `docs/tokens.md`,
-   `docs/components.md`. Change Figma (or `tokens/figma-variables.json`) and run `npm run tokens`.
+   `docs/components.md`, `native/tokens.ts`. Change Figma (or `tokens/figma-variables.json`) and run `npm run tokens`.
+   `native/tokens.ts` is the same tokens for React Native: the Startline Expo app copies it with its own `npm run tokens`.
 8. **RTL-safe layout.** Arabic, Persian and Urdu are right-to-left. Use start/end utilities (`ps-`, `pe-`,
    `ms-`, `me-`, `start-`, `end-`, `text-start`, `rounded-s`, `border-e`), never left/right. Flip directional
    icons (chevrons, arrows, back) with `rtl:-scale-x-100`. A test fails on left/right utilities.
@@ -171,7 +172,7 @@ property; `State` Hover/Pressed are dropped, `State=Disabled` → `disabled`. Va
 
 ```bash
 npm run dev            # Storybook on http://localhost:6006
-npm run tokens         # regenerate tokens.css + docs/tokens.md from tokens/figma-variables.json
+npm run tokens         # regenerate tokens.css, docs/tokens.md and native/tokens.ts from tokens/figma-variables.json
 npm run docs           # regenerate docs/components.md + components.manifest.json from component source
 npm run typecheck
 npm run lint
