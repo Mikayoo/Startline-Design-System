@@ -29,6 +29,7 @@ Use **semantic colour tokens** (below) in components — never primitives or raw
 | Border/Glass | `*-border-glass` | `--startline-border-glass` | Overlay/White 28 (#ffffff47) | Overlay/White 28 (#ffffff47) | Hairline for glass controls on photos. Same in every mode. |
 | Border/Subtle | `*-border-subtle` | `--startline-border-subtle` | Neutral/100 (#e6eeec) | Adaptive/subtle (#2b4540) | Hairline dividers and quiet card outlines. |
 | Elevation/Shadow | `*-elevation-shadow` | `--startline-elevation-shadow` | Shadow/Ink 12 (#1733321f) | Shadow/Black 40 (#00000066) | Shadow colour for raised surfaces (Startline / Elevation / Raised). |
+| Elevation/Shadow Subtle | `*-elevation-shadow-subtle` | `--startline-elevation-shadow-subtle` | Shadow/Ink 07 (#17333212) | Shadow/Black 24 (#0000003d) | Shadow colour for low elevation (Startline / Elevation / 100 and 200). Dark modes use a stronger black so the edge still reads. |
 | Focus/Ring | `*-focus-ring` | `--startline-focus-ring` | Teal/700 (#087f7a) | Adaptive/teal (#83ded2) | Focus outline on any keyboard-focused control. Always 2 px (Border/Focus) with an offset. |
 | Navigation/Foreground Active | `*-navigation-foreground-active` | `--startline-navigation-foreground-active` | Navigation/Active (#0d5c63) | Adaptive/teal (#83ded2) | Icon and label of the active bottom-navigation tab. |
 | Navigation/Foreground Inactive | `*-navigation-foreground-inactive` | `--startline-navigation-foreground-inactive` | Neutral/Slate (#607371) | Adaptive/secondary (#b8ccc7) | Icon and label of inactive bottom-navigation tabs. |

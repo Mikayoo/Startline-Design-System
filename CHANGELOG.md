@@ -7,6 +7,8 @@
 - Figma: 218 deprecated `Primary Button` / `Secondary Button` instances migrated to `Pill button`; old components
   marked deprecated with 0 uses
 - Storybook published to GitHub Pages; CONTRIBUTING.md added
+- New token `Elevation/Shadow Subtle`; `shadow-100` / `shadow-200` now adapt to dark modes
+- Figma: Back button pressed shadow removed; Chip and Switch descriptions state the 44 px touch target
 
 ## 0.1.0 — 2026-11-10
 

@@ -251,7 +251,15 @@ All edits are in place: no component was recreated, so existing screen instances
 - **8 Deprecated buttons:** all 218 instances (104 Startline Screens, 104 iPhone Mockups, 10 Portfolio Mockups)
   swapped to `Startline / Pill button` (Primary/Secondary, arrow off, labels kept, widths kept). Old components
   renamed `⚠ Deprecated – …` with 0 uses; remove in the next major release.
-- **Still open:** 2 (publish the Figma library update — owner action), 4, 6, 7.
+- **4 Back button:** accidental pressed drop shadow removed; Pressed stays distinct through its fill. Matches code.
+- **6 Touch targets:** kept Chip SM (36 px) and Switch (26 px) visuals — same reasoning as iOS controls, where
+  the visual can be smaller than the hit area. Both reach ≥ 44 px tappable in code; the rule is now written in the
+  Figma component descriptions so designers space them correctly.
+- **7 Shadows:** new semantic token `Elevation/Shadow Subtle` (Light/IC Light: Shadow/Ink 07 · Dark/IC Dark:
+  Shadow/Black 24). `Elevation/100` and `/200` are now bound to it, so low-elevation cards keep an edge in dark modes.
+  Light mode moves from rgb(12 31 30) to Ink #173332 at the same 7 % — not visible. `Elevation/Action` and
+  `Elevation/Floating` still use fixed colours (Action is an intentional teal glow).
+- **Still open:** 2 (publish the Figma library update — owner action).
 
 ### Open items for the designer (not changed — your call)
 1. **Logo Mark component:** `Theme=Color` variant is empty; `Theme=Inverse` is white-on-white;

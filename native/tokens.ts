@@ -54,7 +54,9 @@ export const primitives = {
   "red700": "#a83f37",
   "red800": "#8a3029",
   "sand100": "#f8f2e8",
+  "shadowBlack24": "#0000003d",
   "shadowBlack40": "#00000066",
+  "shadowInk07": "#17333212",
   "shadowInk12": "#1733321f",
   "teal50": "#f0faf8",
   "teal100": "#d8f0ed",
@@ -92,6 +94,7 @@ export const themes = {
     "borderGlass": "#ffffff47",
     "borderSubtle": "#e6eeec",
     "elevationShadow": "#1733321f",
+    "elevationShadowSubtle": "#17333212",
     "focusRing": "#087f7a",
     "navigationForegroundActive": "#0d5c63",
     "navigationForegroundInactive": "#607371",
@@ -147,6 +150,7 @@ export const themes = {
     "borderGlass": "#ffffff47",
     "borderSubtle": "#2b4540",
     "elevationShadow": "#00000066",
+    "elevationShadowSubtle": "#0000003d",
     "focusRing": "#83ded2",
     "navigationForegroundActive": "#83ded2",
     "navigationForegroundInactive": "#b8ccc7",
@@ -202,6 +206,7 @@ export const themes = {
     "borderGlass": "#ffffff47",
     "borderSubtle": "#4b5f5c",
     "elevationShadow": "#1733321f",
+    "elevationShadowSubtle": "#17333212",
     "focusRing": "#055e58",
     "navigationForegroundActive": "#055e58",
     "navigationForegroundInactive": "#173332",
@@ -257,6 +262,7 @@ export const themes = {
     "borderGlass": "#ffffff47",
     "borderSubtle": "#b8ccc7",
     "elevationShadow": "#00000066",
+    "elevationShadowSubtle": "#0000003d",
     "focusRing": "#ffffff",
     "navigationForegroundActive": "#83ded2",
     "navigationForegroundInactive": "#ffffff",
@@ -442,8 +448,8 @@ export const textStyles = {
 export const shadows = {
   light: {
     "100": {
-      "boxShadow": "0px 1px 3px 0px #0c1f1e12",
-      "shadowColor": "#0c1f1e",
+      "boxShadow": "0px 1px 3px 0px #17333212",
+      "shadowColor": "#173332",
       "shadowOpacity": 0.07,
       "shadowRadius": 3,
       "shadowOffset": {
@@ -453,9 +459,9 @@ export const shadows = {
       "elevation": 1
     },
     "200": {
-      "boxShadow": "0px 2px 6px 0px #0c1f1e0f, 0px 6px 16px 0px #0c1f1e14",
-      "shadowColor": "#0c1f1e",
-      "shadowOpacity": 0.08,
+      "boxShadow": "0px 2px 6px 0px #17333212, 0px 6px 16px 0px #17333212",
+      "shadowColor": "#173332",
+      "shadowOpacity": 0.07,
       "shadowRadius": 16,
       "shadowOffset": {
         "width": 0,
@@ -510,9 +516,9 @@ export const shadows = {
   },
   dark: {
     "100": {
-      "boxShadow": "0px 1px 3px 0px #0c1f1e12",
-      "shadowColor": "#0c1f1e",
-      "shadowOpacity": 0.07,
+      "boxShadow": "0px 1px 3px 0px #0000003d",
+      "shadowColor": "#000000",
+      "shadowOpacity": 0.24,
       "shadowRadius": 3,
       "shadowOffset": {
         "width": 0,
@@ -521,9 +527,9 @@ export const shadows = {
       "elevation": 1
     },
     "200": {
-      "boxShadow": "0px 2px 6px 0px #0c1f1e0f, 0px 6px 16px 0px #0c1f1e14",
-      "shadowColor": "#0c1f1e",
-      "shadowOpacity": 0.08,
+      "boxShadow": "0px 2px 6px 0px #0000003d, 0px 6px 16px 0px #0000003d",
+      "shadowColor": "#000000",
+      "shadowOpacity": 0.24,
       "shadowRadius": 16,
       "shadowOffset": {
         "width": 0,
@@ -578,8 +584,8 @@ export const shadows = {
   },
   icLight: {
     "100": {
-      "boxShadow": "0px 1px 3px 0px #0c1f1e12",
-      "shadowColor": "#0c1f1e",
+      "boxShadow": "0px 1px 3px 0px #17333212",
+      "shadowColor": "#173332",
       "shadowOpacity": 0.07,
       "shadowRadius": 3,
       "shadowOffset": {
@@ -589,9 +595,9 @@ export const shadows = {
       "elevation": 1
     },
     "200": {
-      "boxShadow": "0px 2px 6px 0px #0c1f1e0f, 0px 6px 16px 0px #0c1f1e14",
-      "shadowColor": "#0c1f1e",
-      "shadowOpacity": 0.08,
+      "boxShadow": "0px 2px 6px 0px #17333212, 0px 6px 16px 0px #17333212",
+      "shadowColor": "#173332",
+      "shadowOpacity": 0.07,
       "shadowRadius": 16,
       "shadowOffset": {
         "width": 0,
@@ -646,9 +652,9 @@ export const shadows = {
   },
   icDark: {
     "100": {
-      "boxShadow": "0px 1px 3px 0px #0c1f1e12",
-      "shadowColor": "#0c1f1e",
-      "shadowOpacity": 0.07,
+      "boxShadow": "0px 1px 3px 0px #0000003d",
+      "shadowColor": "#000000",
+      "shadowOpacity": 0.24,
       "shadowRadius": 3,
       "shadowOffset": {
         "width": 0,
@@ -657,9 +663,9 @@ export const shadows = {
       "elevation": 1
     },
     "200": {
-      "boxShadow": "0px 2px 6px 0px #0c1f1e0f, 0px 6px 16px 0px #0c1f1e14",
-      "shadowColor": "#0c1f1e",
-      "shadowOpacity": 0.08,
+      "boxShadow": "0px 2px 6px 0px #0000003d, 0px 6px 16px 0px #0000003d",
+      "shadowColor": "#000000",
+      "shadowOpacity": 0.24,
       "shadowRadius": 16,
       "shadowOffset": {
         "width": 0,

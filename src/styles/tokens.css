@@ -52,7 +52,9 @@
   --startline-red-700: #a83f37;
   --startline-red-800: #8a3029;
   --startline-sand-100: #f8f2e8;
+  --startline-shadow-black-24: #0000003d;
   --startline-shadow-black-40: #00000066;
+  --startline-shadow-ink-07: #17333212;
   --startline-shadow-ink-12: #1733321f;
   --startline-teal-50: #f0faf8;
   --startline-teal-100: #d8f0ed;
@@ -146,6 +148,7 @@
   --startline-border-glass: var(--startline-overlay-white-28);
   --startline-border-subtle: var(--startline-neutral-100);
   --startline-elevation-shadow: var(--startline-shadow-ink-12);
+  --startline-elevation-shadow-subtle: var(--startline-shadow-ink-07);
   --startline-focus-ring: var(--startline-teal-700);
   --startline-navigation-foreground-active: var(--startline-navigation-active);
   --startline-navigation-foreground-inactive: var(--startline-neutral-slate);
@@ -204,6 +207,7 @@
     --startline-border-glass: var(--startline-overlay-white-28);
     --startline-border-subtle: var(--startline-adaptive-subtle);
     --startline-elevation-shadow: var(--startline-shadow-black-40);
+    --startline-elevation-shadow-subtle: var(--startline-shadow-black-24);
     --startline-focus-ring: var(--startline-adaptive-teal);
     --startline-navigation-foreground-active: var(--startline-adaptive-teal);
     --startline-navigation-foreground-inactive: var(--startline-adaptive-secondary);
@@ -263,6 +267,7 @@
     --startline-border-glass: var(--startline-overlay-white-28);
     --startline-border-subtle: var(--startline-adaptive-slate);
     --startline-elevation-shadow: var(--startline-shadow-ink-12);
+    --startline-elevation-shadow-subtle: var(--startline-shadow-ink-07);
     --startline-focus-ring: var(--startline-adaptive-darkteal);
     --startline-navigation-foreground-active: var(--startline-adaptive-darkteal);
     --startline-navigation-foreground-inactive: var(--startline-adaptive-strong);
@@ -322,6 +327,7 @@
     --startline-border-glass: var(--startline-overlay-white-28);
     --startline-border-subtle: var(--startline-adaptive-secondary);
     --startline-elevation-shadow: var(--startline-shadow-black-40);
+    --startline-elevation-shadow-subtle: var(--startline-shadow-black-24);
     --startline-focus-ring: var(--startline-adaptive-white);
     --startline-navigation-foreground-active: var(--startline-adaptive-teal);
     --startline-navigation-foreground-inactive: var(--startline-adaptive-white);
@@ -381,6 +387,7 @@
   --startline-border-glass: var(--startline-overlay-white-28);
   --startline-border-subtle: var(--startline-adaptive-subtle);
   --startline-elevation-shadow: var(--startline-shadow-black-40);
+  --startline-elevation-shadow-subtle: var(--startline-shadow-black-24);
   --startline-focus-ring: var(--startline-adaptive-teal);
   --startline-navigation-foreground-active: var(--startline-adaptive-teal);
   --startline-navigation-foreground-inactive: var(--startline-adaptive-secondary);
@@ -438,6 +445,7 @@
   --startline-border-glass: var(--startline-overlay-white-28);
   --startline-border-subtle: var(--startline-adaptive-slate);
   --startline-elevation-shadow: var(--startline-shadow-ink-12);
+  --startline-elevation-shadow-subtle: var(--startline-shadow-ink-07);
   --startline-focus-ring: var(--startline-adaptive-darkteal);
   --startline-navigation-foreground-active: var(--startline-adaptive-darkteal);
   --startline-navigation-foreground-inactive: var(--startline-adaptive-strong);
@@ -495,6 +503,7 @@
   --startline-border-glass: var(--startline-overlay-white-28);
   --startline-border-subtle: var(--startline-adaptive-secondary);
   --startline-elevation-shadow: var(--startline-shadow-black-40);
+  --startline-elevation-shadow-subtle: var(--startline-shadow-black-24);
   --startline-focus-ring: var(--startline-adaptive-white);
   --startline-navigation-foreground-active: var(--startline-adaptive-teal);
   --startline-navigation-foreground-inactive: var(--startline-adaptive-white);
