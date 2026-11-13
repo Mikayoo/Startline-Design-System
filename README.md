@@ -9,6 +9,8 @@ Figma is the source of truth; every component, token and prop name mirrors it.
   device fonts for Chinese/Japanese/Korean, every component right-to-left ready
 - Built on React 19, Tailwind CSS v4 and shadcn/ui (Radix), restyled to Startline tokens
 
+**See it:** [one screen in all four themes](docs/media/startline-theme-modes.mp4) (8 s)
+
 **Browse it:** [Storybook](https://mikayoo.github.io/Startline-Design-System/) — every component, every variant, all four themes.
 
 ## Use
