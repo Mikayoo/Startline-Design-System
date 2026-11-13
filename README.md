@@ -9,10 +9,20 @@ Figma is the source of truth; every component, token and prop name mirrors it.
   device fonts for Chinese/Japanese/Korean, every component right-to-left ready
 - Built on React 19, Tailwind CSS v4 and shadcn/ui (Radix), restyled to Startline tokens
 
+**Browse it:** [Storybook](https://mikayoo.github.io/Startline-Design-System/) — every component, every variant, all four themes.
+
 ## Use
 
+`@startline/ui` is not published to npm yet. To try it in an app, build a package from this repo:
+
 ```bash
-npm install @startline/ui
+git clone https://github.com/Mikayoo/Startline-Design-System.git
+cd Startline-Design-System
+npm install
+npm run build
+npm pack            # → startline-ui-0.1.0.tgz
+# in your app:
+npm install ../Startline-Design-System/startline-ui-0.1.0.tgz
 ```
 
 ```tsx
@@ -30,6 +40,7 @@ Themes follow the device; force one with `<html data-theme="dark">` (`light`, `d
 - [CLAUDE.md](CLAUDE.md) — rules for building with the system (for people and AI agents)
 - [docs/components.md](docs/components.md) — every component and prop (generated)
 - [docs/tokens.md](docs/tokens.md) — every token (generated)
+- [CONTRIBUTING.md](CONTRIBUTING.md) — how to propose, review, build and release a change
 - [PLAN.md](PLAN.md) — Figma audit, decisions and change log
 - Storybook: `npm run dev` → http://localhost:6006
 
