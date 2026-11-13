@@ -39,10 +39,10 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(func
       </label>
       <div
         className={cn(
-          "flex rounded-sm border border-border-default bg-surface-primary p-4",
-          "focus-within:border-action-primary focus-within:ring-1 focus-within:ring-inset focus-within:ring-action-primary",
+          "flex rounded-md border border-border-default bg-surface-primary p-4",
+          "focus-within:border-focus-ring focus-within:ring-1 focus-within:ring-inset focus-within:ring-focus-ring",
           error && "border-text-error focus-within:border-text-error focus-within:ring-text-error",
-          disabled && "bg-surface-disabled",
+          disabled && "border-border-disabled bg-surface-disabled",
         )}
       >
         <input

@@ -6,7 +6,7 @@ import { Icon } from "../icon";
 const fieldVariants = cva(
   [
     "flex w-full items-center gap-2.5 rounded-md border border-border-default bg-surface-primary text-text-brand",
-    "focus-within:border-border-brand focus-within:ring-1 focus-within:ring-inset focus-within:ring-border-brand",
+    "focus-within:border-focus-ring focus-within:ring-1 focus-within:ring-inset focus-within:ring-focus-ring",
     "has-[input:disabled]:border-border-disabled has-[input:disabled]:bg-surface-disabled",
   ],
   {

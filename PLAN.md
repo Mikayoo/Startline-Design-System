@@ -241,6 +241,18 @@ All edits are in place: no component was recreated, so existing screen instances
   so they darken in dark mode.
 - Borrowed effect styles `Elevation/100`, `/200` → local `Startline / Elevation / 100`, `/200`.
 
+### Resolved 2026-11-13
+- **1 Logo:** `Logo Mark / Theme=Color` renders correctly. `Inverse` was correct (white artwork) but invisible on
+  the white canvas — added locked dark preview backdrops behind the Inverse mark and lockups (not part of the
+  components). `Logo Lockup / Horizontal, Mono` now has its wordmark.
+- **3 Dark mode:** already resolved — `Status/Info Subtle` uses Adaptive/raised, `Background/Brand Subtle` Adaptive/subtle.
+- **5 Field consistency:** Text field and Search field now share focus (`Focus/Ring`, 2 px) and radius
+  (`Radius/MD`, 12 px). Text field disabled border now `Border/Disabled`. Code updated to match.
+- **8 Deprecated buttons:** all 218 instances (104 Startline Screens, 104 iPhone Mockups, 10 Portfolio Mockups)
+  swapped to `Startline / Pill button` (Primary/Secondary, arrow off, labels kept, widths kept). Old components
+  renamed `⚠ Deprecated – …` with 0 uses; remove in the next major release.
+- **Still open:** 2 (publish the Figma library update — owner action), 4, 6, 7.
+
 ### Open items for the designer (not changed — your call)
 1. **Logo Mark component:** `Theme=Color` variant is empty; `Theme=Inverse` is white-on-white;
    `Logo Lockup` Horizontal+Mono has no wordmark. Code uses the complete mark from the lockup.

@@ -20,9 +20,9 @@ git clone https://github.com/Mikayoo/Startline-Design-System.git
 cd Startline-Design-System
 npm install
 npm run build
-npm pack            # → startline-ui-0.1.0.tgz
+npm pack            # → startline-ui-0.1.1.tgz
 # in your app:
-npm install ../Startline-Design-System/startline-ui-0.1.0.tgz
+npm install ../Startline-Design-System/startline-ui-0.1.1.tgz
 ```
 
 ```tsx
