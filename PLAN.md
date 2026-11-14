@@ -259,7 +259,10 @@ All edits are in place: no component was recreated, so existing screen instances
   Shadow/Black 24). `Elevation/100` and `/200` are now bound to it, so low-elevation cards keep an edge in dark modes.
   Light mode moves from rgb(12 31 30) to Ink #173332 at the same 7 % — not visible. `Elevation/Action` and
   `Elevation/Floating` still use fixed colours (Action is an intentional teal glow).
-- **Still open:** 2 (publish the Figma library update — owner action).
+- **2 Library publish:** not available on the Figma Starter plan. Not needed today: every screen that uses the
+  system lives in the same file, so components and variables update in place. Publish only becomes necessary
+  when a second Figma file needs to consume the system (requires a Professional plan).
+- **Nothing open.**
 
 ### Open items for the designer (not changed — your call)
 1. **Logo Mark component:** `Theme=Color` variant is empty; `Theme=Inverse` is white-on-white;

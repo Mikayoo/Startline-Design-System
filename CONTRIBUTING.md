@@ -64,7 +64,8 @@ Add visual QA screenshots (Figma light/dark vs Storybook) to `docs/qa/<component
 ### 4. Release
 - Semantic versioning: fix → patch, extend/new → minor, breaking → major.
 - Add an entry to [CHANGELOG.md](CHANGELOG.md): what changed, why, and what to do about it.
-- Publish the Figma library update the same day the code merges, so design and code never drift.
+- Design and code ship together: Figma changes land the same day the code merges. (Startline's screens live in
+  the system file, so they update in place; if the library is ever consumed by other files, publish it then.)
 - Merging to `main` rebuilds the public Storybook automatically.
 
 ### 5. Migrate (breaking changes only)
