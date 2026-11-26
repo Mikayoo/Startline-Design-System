@@ -740,6 +740,70 @@
       "example": "<GuidanceCard tone=\"info\" title=\"Prepare for your next step\" body=\"Keep useful details together…\" />"
     },
     {
+      "name": "DocumentCard",
+      "summary": "Document card — one document a step may need, on \"Documents you may need\"",
+      "description": "Document card — one document a step may need, on \"Documents you may need\". Shows the name, where it comes from, why it may help, what to do without it, and whether it is Required, Recommended or Helpful. Read-only: documents are never required to use Startline, so pair a list of these with a way to continue without them.",
+      "import": "import { DocumentCard } from \"@startline/ui\"",
+      "source": "src/components/document-card/DocumentCard.tsx",
+      "figma": {
+        "url": "https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=934-318",
+        "nodeId": "934:318"
+      },
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "description": "Figma `Title`: the document's name."
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "required": false,
+          "description": "Figma `Helper`: where it comes from or what it's often called."
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "required": false,
+          "description": "Figma `Body`: why it may help, and what to do without it."
+        },
+        {
+          "name": "level",
+          "type": "Level",
+          "required": false,
+          "default": "recommended",
+          "description": "Figma `Level`. Required uses warning colours; never colour alone, the label says it."
+        },
+        {
+          "name": "levelLabel",
+          "type": "string",
+          "required": false,
+          "description": "Translated label for the level badge. Defaults to the English level name."
+        },
+        {
+          "name": "icon",
+          "type": "IconName",
+          "required": false,
+          "default": "file",
+          "description": "Figma `Icon` (instance swap)."
+        },
+        {
+          "name": "titleAs",
+          "type": "\"h2\" | \"h3\" | \"h4\"",
+          "required": false,
+          "values": [
+            "h2",
+            "h3",
+            "h4"
+          ],
+          "default": "h3",
+          "description": "Heading level of the title."
+        }
+      ],
+      "example": "<DocumentCard level=\"recommended\" title=\"Photo ID\" helper=\"Passport or other ID, if you have one\" body=\"If you don't have one, ask what they accept.\" />"
+    },
+    {
       "name": "SettingsRow",
       "summary": "Settings row — a row in a settings list with label, current value and chevron; opens a detail screen",
       "description": "Settings row — a row in a settings list with label, current value and chevron; opens a detail screen. Figma `State`: Pressed is the CSS :active state; Disabled → `disabled`. Group rows in a list; for instant on/off use a Switch with its own label instead.",

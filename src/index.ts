@@ -15,6 +15,7 @@ export * from "./components/source-indicator";
 export * from "./components/task-card";
 export * from "./components/resource-list-item";
 export * from "./components/guidance-card";
+export * from "./components/document-card";
 export * from "./components/settings-row";
 export * from "./components/back-button";
 export * from "./components/bottom-navigation";

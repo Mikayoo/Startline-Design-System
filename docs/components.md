@@ -19,6 +19,7 @@
 - [TaskCard](#taskcard) — Task card — one next step on the user's path: status tag, title, optional description and meta, and an action
 - [ResourceListItem](#resourcelistitem) — Resource list item — a service or resource (provider, title, description, source) for comparison in a list
 - [GuidanceCard](#guidancecard) — Guidance card — supporting information with no task action
+- [DocumentCard](#documentcard) — Document card — one document a step may need, on "Documents you may need"
 - [SettingsRow](#settingsrow) — Settings row — a row in a settings list with label, current value and chevron; opens a detail screen
 - [BackButton](#backbutton) — Back button — Icon button with the back arrow, top-start on detail screens without bottom navigation
 - [BottomNavigation](#bottomnavigation) — Bottom navigation — floating tab bar for the 5 primary destinations (Home, My Path, Ask, Resources, Profile)
@@ -430,6 +431,35 @@ Also accepts the standard HTML attributes of its root element (`className`, `id`
 
 ```tsx
 <GuidanceCard tone="info" title="Prepare for your next step" body="Keep useful details together…" />
+```
+
+---
+
+## DocumentCard
+
+Document card — one document a step may need, on "Documents you may need". Shows the name, where it
+comes from, why it may help, what to do without it, and whether it is Required, Recommended or
+Helpful. Read-only: documents are never required to use Startline, so pair a list of these with a
+way to continue without them.
+
+Figma: Startline / Document card — https://www.figma.com/design/TiHKqEUApUi1FNNtRGzAC7/Startline?node-id=934-318
+
+Source: `src/components/document-card/DocumentCard.tsx`
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `title` * | `string` |  | Figma `Title`: the document's name. |
+| `helper` | `string` |  | Figma `Helper`: where it comes from or what it's often called. |
+| `body` | `string` |  | Figma `Body`: why it may help, and what to do without it. |
+| `level` | `Level` | `recommended` | Figma `Level`. Required uses warning colours; never colour alone, the label says it. |
+| `levelLabel` | `string` |  | Translated label for the level badge. Defaults to the English level name. |
+| `icon` | `IconName` | `file` | Figma `Icon` (instance swap). |
+| `titleAs` | `"h2" \| "h3" \| "h4"` | `h3` | Heading level of the title. |
+
+Also accepts the standard HTML attributes of its root element (`className`, `id`, `aria-*`, events…).
+
+```tsx
+<DocumentCard level="recommended" title="Photo ID" helper="Passport or other ID, if you have one" body="If you don't have one, ask what they accept." />
 ```
 
 ---

@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- New `DocumentCard` (Figma `Startline / Document card`): one document a step may need, with a Required, Recommended or Helpful label
+- `BottomNavigation`: Ask uses the sparkle icon and tab icons are 24 px, matching Figma
+
 ## 0.1.1 — 2026-11-13
 
 - TextField and SearchField share one focus treatment (`Focus/Ring`) and radius (`Radius/MD`), matching Figma

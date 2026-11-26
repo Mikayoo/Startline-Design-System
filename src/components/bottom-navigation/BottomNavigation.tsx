@@ -8,7 +8,7 @@ export type Destination = "home" | "my-path" | "ask" | "resources" | "profile";
 const DESTINATIONS: { id: Destination; icon: IconName; label: string; href: string }[] = [
   { id: "home", icon: "home", label: "Home", href: "/" },
   { id: "my-path", icon: "route", label: "My Path", href: "/path" },
-  { id: "ask", icon: "speech", label: "Ask", href: "/ask" },
+  { id: "ask", icon: "sparkle", label: "Ask", href: "/ask" },
   { id: "resources", icon: "book", label: "Resources", href: "/resources" },
   { id: "profile", icon: "user", label: "Profile", href: "/profile" },
 ];
@@ -55,7 +55,7 @@ export const BottomNavigation = React.forwardRef<HTMLElement, BottomNavigationPr
                 href={item?.href ?? d.href}
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
-                  "flex h-13.5 w-full flex-col items-center justify-center gap-1 rounded-full text-tab-label outline-none [&_svg]:size-5.5",
+                  "flex h-13.5 w-full flex-col items-center justify-center gap-1 rounded-full text-tab-label outline-none [&_svg]:size-6",
                   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring",
                   isActive
                     ? "bg-action-primary text-text-inverse"
