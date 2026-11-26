@@ -118,6 +118,7 @@ import line, every prop with `values` and `default`. Check it before using a pro
 | `ReviewRow` | One answer in a review/summary | `icon` *, `label` *, `value` *, `actionLabel`, `onAction` |
 | `TaskCard` | A next step with a visible action | `state` next·upcoming·complete, `title` *, `description`, `meta`, `actionLabel`, `actionHref`/`onAction` |
 | `ResourceListItem` | Comparing services in a list | `provider` *, `title` *, `description`, `kind` resource·service, `emphasis`, `href` |
+| `DocumentCard` | One document a step may need ("Documents you may need") | `title` *, `helper`, `body`, `level` required·recommended·helpful, `levelLabel`, `icon` |
 | `GuidanceCard` | Information with no action | `title` *, `body`, `layout` card·row·tile, `tone` neutral·info |
 | `SettingsRow` | A row in settings | `label` *, `value`, `href`/`onClick`, `disabled` |
 | `BackButton` | Leaving a detail screen (= IconButton arrow-left) | `label`, `onClick` |
